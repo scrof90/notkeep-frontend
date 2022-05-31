@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Note = ({ note }) => {
   const noteStyle = {
     color: 'grey',
@@ -10,6 +12,10 @@ const Note = ({ note }) => {
       <li className={noteStyle}>{note.content}</li>
     </>
   );
+};
+
+Note.propTypes = {
+  note: PropTypes.object.isRequired
 };
 
 export default Note;
