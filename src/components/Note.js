@@ -9,8 +9,10 @@ const Note = ({ note, togglePinned }) => {
 
   return (
     <>
-      <li className={noteStyle}>{note.content}</li>
-      <button onClick={togglePinned}>{note.pinned ? 'unpin' : 'pin'}</button>
+      <div className={noteStyle}>
+        <p>{note.content}</p>
+        <button onClick={() => togglePinned(note.id)}>{note.pinned ? 'unpin' : 'pin'}</button>
+      </div>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Note from './components/Note';
+import Notes from './components/Notes';
 import Notification from './components/Notification';
 import Footer from './components/Footer';
 import noteService from './services/notes';
@@ -68,26 +68,18 @@ const App = () => {
   return (
     <div>
       <h1>NotKeep</h1>
-      <Notification message={errorMessage} />
-      {notesPinned.length > 0 && (
-        <>
-          <ul>
-            {notesPinned.map((note) => (
-              <Note key={note.id} note={note} togglePinned={() => togglePinned(note.id)} />
-            ))}
-          </ul>
-          <br />
-        </>
-      )}
-      <ul>
-        {notesUnpinned.map((note) => (
-          <Note key={note.id} note={note} togglePinned={() => togglePinned(note.id)} />
-        ))}
-      </ul>
       <form onSubmit={addNote}>
         <input value={newNote} onChange={handleNoteChange} />
         <button type="submit">save</button>
       </form>
+      <Notification message={errorMessage} />
+      {notes.length > 0 && notesPinned.length > 0 && (
+        <Notes notes={notesPinned} togglePinned={togglePinned} />
+      )}
+      <br />
+      {notes.length > 0 && notesUnpinned.length > 0 && (
+        <Notes notes={notesUnpinned} togglePinned={togglePinned} />
+      )}
       <Footer />
     </div>
   );
