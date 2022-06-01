@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Notes from './components/Notes';
+import NoteCreationForm from './components/NoteCreationForm';
 import Notification from './components/Notification';
 import Footer from './components/Footer';
 import noteService from './services/notes';
@@ -68,10 +69,7 @@ const App = () => {
   return (
     <div>
       <h1>NotKeep</h1>
-      <form onSubmit={addNote}>
-        <input value={newNote} onChange={handleNoteChange} />
-        <button type="submit">save</button>
-      </form>
+      <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
       <Notification message={errorMessage} />
       {notesPinned.length > 0 && <Notes notes={notesPinned} togglePinned={togglePinned} />}
       <br />
