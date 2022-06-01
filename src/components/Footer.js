@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div style={footerStyle}>
       <br />
-      <em>Minijoplin</em>
+      <em>NotKeep</em>
     </div>
   );
 };

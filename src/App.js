@@ -9,13 +9,27 @@ const App = () => {
   const [newNote, setNewNote] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const handleError = (message) => {
+    setErrorMessage(message);
+    setTimeout(() => {
+      setErrorMessage(null);
+    }, 5000);
+  };
+
   useEffect(() => {
-    noteService.getAll().then((initialNotes) => {
-      setNotes(initialNotes);
-    });
+    const setInitialNotes = async () => {
+      try {
+        const initialNotes = await noteService.getAll();
+        setNotes(initialNotes);
+      } catch {
+        handleError('Failed to fetch notes');
+      }
+    };
+
+    setInitialNotes();
   }, []);
 
-  const addNote = (e) => {
+  const addNote = async (e) => {
     e.preventDefault();
     const noteObject = {
       content: newNote,
@@ -23,10 +37,13 @@ const App = () => {
       pinned: false
     };
 
-    noteService.create(noteObject).then((returnedNote) => {
+    try {
+      const returnedNote = await noteService.create(noteObject);
       setNotes(notes.concat(returnedNote));
       setNewNote('');
-    });
+    } catch {
+      handleError('Note creation failed, please try again');
+    }
   };
 
   const togglePinned = async (id) => {
@@ -37,10 +54,7 @@ const App = () => {
       const returnedNote = await noteService.update(id, changedNote);
       setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
     } catch {
-      setErrorMessage(`Note '${note.content}' was already removed from server`);
-      setTimeout(() => {
-        setErrorMessage(null);
-      }, 5000);
+      handleError(`Note '${note.content}' was already removed from server`);
     }
   };
 
@@ -53,7 +67,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Minijoplin</h1>
+      <h1>NotKeep</h1>
       <Notification message={errorMessage} />
       {notesPinned.length > 0 && (
         <>
