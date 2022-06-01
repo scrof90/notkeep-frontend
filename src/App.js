@@ -73,13 +73,10 @@ const App = () => {
         <button type="submit">save</button>
       </form>
       <Notification message={errorMessage} />
-      {notes.length > 0 && notesPinned.length > 0 && (
-        <Notes notes={notesPinned} togglePinned={togglePinned} />
-      )}
+      {notesPinned.length > 0 && <Notes notes={notesPinned} togglePinned={togglePinned} />}
       <br />
-      {notes.length > 0 && notesUnpinned.length > 0 && (
-        <Notes notes={notesUnpinned} togglePinned={togglePinned} />
-      )}
+      {notesUnpinned.length > 0 && <Notes notes={notesUnpinned} togglePinned={togglePinned} />}
+      <br />
       <Footer />
     </div>
   );
