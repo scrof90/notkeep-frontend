@@ -1,19 +1,14 @@
 import PropTypes from 'prop-types';
+import { FaThumbtack } from 'react-icons/fa';
 
 const Note = ({ note, togglePinned }) => {
-  const noteStyle = {
-    color: 'grey',
-    paddingTop: '3px',
-    fontSize: '15px'
-  };
-
   return (
-    <>
-      <div className={noteStyle}>
-        <p>{note.content}</p>
-        <button onClick={() => togglePinned(note.id)}>{note.pinned ? 'unpin' : 'pin'}</button>
-      </div>
-    </>
+    <div className="note">
+      <FaThumbtack className="pin" onClick={() => togglePinned(note.id)}>
+        {note.pinned ? 'unpin' : 'pin'}
+      </FaThumbtack>
+      <p>{note.content}</p>
+    </div>
   );
 };
 
