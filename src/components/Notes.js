@@ -4,7 +4,7 @@ import Note from './Note';
 const Notes = ({ notes, togglePinned }) => {
   return (
     <div>
-      <h2>{notes[0].pinned ? 'Pinned' : 'Others'}</h2>
+      <h2 className="notes-header">{notes[0].pinned ? 'Pinned' : 'Others'}</h2>
       <div className="notes-container">
         {notes.map((note) => (
           <Note key={note.id} note={note} togglePinned={togglePinned} />

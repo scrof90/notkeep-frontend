@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
-import { FaThumbtack } from 'react-icons/fa';
+import { MdPushPin } from 'react-icons/md';
+import { MdOutlinePushPin } from 'react-icons/md';
 
 const Note = ({ note, togglePinned }) => {
   return (
     <div className="note">
-      <FaThumbtack className="pin" onClick={() => togglePinned(note.id)}>
-        {note.pinned ? 'unpin' : 'pin'}
-      </FaThumbtack>
+      <div className="pin-container" onClick={() => togglePinned(note.id)}>
+        {note.pinned && <MdPushPin className="pin" />}
+        {!note.pinned && <MdOutlinePushPin className="pin" />}
+      </div>
       <p>{note.content}</p>
     </div>
   );
