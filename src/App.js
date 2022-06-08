@@ -68,13 +68,15 @@ const App = () => {
 
   return (
     <div>
-      <h1>NotKeep</h1>
-      <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
-      <Notification message={errorMessage} />
-      {notesPinned.length > 0 && <Notes notes={notesPinned} togglePinned={togglePinned} />}
-      <br />
-      {notesUnpinned.length > 0 && <Notes notes={notesUnpinned} togglePinned={togglePinned} />}
-      <br />
+      <header>
+        <h1>NotKeep</h1>
+      </header>
+      <div className="notes-container">
+        <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
+        <Notification message={errorMessage} />
+        {notesPinned.length > 0 && <Notes notes={notesPinned} togglePinned={togglePinned} />}
+        {notesUnpinned.length > 0 && <Notes notes={notesUnpinned} togglePinned={togglePinned} />}
+      </div>
       <Footer />
     </div>
   );

@@ -5,7 +5,7 @@ const Notes = ({ notes, togglePinned }) => {
   return (
     <div>
       <h2 className="notes-header">{notes[0].pinned ? 'Pinned' : 'Others'}</h2>
-      <div className="notes-container">
+      <div className="notes">
         {notes.map((note) => (
           <Note key={note.id} note={note} togglePinned={togglePinned} />
         ))}
