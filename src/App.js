@@ -69,7 +69,18 @@ const App = () => {
   return (
     <div>
       <header>
-        <h1>NotKeep</h1>
+        <div>
+          <div>main menu button</div>
+          <div>
+            <div>logo</div>
+            <h1>NotKeep</h1>
+          </div>
+        </div>
+        <div>search bar</div>
+        <div>
+          <div>tools</div>
+          <div>account</div>
+        </div>
       </header>
       <div className="notes-container">
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
