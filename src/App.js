@@ -69,7 +69,7 @@ const App = () => {
 
   return (
     <div>
-      <header>
+      <header className="topbar">
         <div>
           <div>main menu button</div>
           <div>
