@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SearchBar from './components/SearchBar';
 import Notes from './components/Notes';
 import NoteCreationForm from './components/NoteCreationForm';
 import Notification from './components/Notification';
@@ -9,6 +10,7 @@ const App = () => {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
+  const [searchFilter, setSearchFilter] = useState('');
 
   const handleError = (message) => {
     setErrorMessage(message);
@@ -59,9 +61,8 @@ const App = () => {
     }
   };
 
-  const handleNoteChange = (e) => {
-    setNewNote(e.target.value);
-  };
+  const handleNoteChange = (e) => setNewNote(e.target.value);
+  const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
 
   const notesPinned = notes.filter((note) => note.pinned);
   const notesUnpinned = notes.filter((note) => !note.pinned);
@@ -76,7 +77,7 @@ const App = () => {
             <h1>NotKeep</h1>
           </div>
         </div>
-        <div>search bar</div>
+        <SearchBar value={searchFilter} onChange={handleSearchFilterChange} />
         <div>
           <div>tools</div>
           <div>account</div>
@@ -85,8 +86,12 @@ const App = () => {
       <div className="notes-container">
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
         <Notification message={errorMessage} />
-        {notesPinned.length > 0 && <Notes notes={notesPinned} togglePinned={togglePinned} />}
-        {notesUnpinned.length > 0 && <Notes notes={notesUnpinned} togglePinned={togglePinned} />}
+        {notesPinned.length > 0 && (
+          <Notes notes={notesPinned} searchFilter={searchFilter} togglePinned={togglePinned} />
+        )}
+        {notesUnpinned.length > 0 && (
+          <Notes notes={notesUnpinned} searchFilter={searchFilter} togglePinned={togglePinned} />
+        )}
       </div>
       <Footer />
     </div>
