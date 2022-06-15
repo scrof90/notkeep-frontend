@@ -100,11 +100,6 @@ body {
   min-height: 100px;
 }
 
-.icon {
-  width: 1.6rem;
-  height: 1.6rem;
-  opacity: 0.7;
-}
 
 .pin-container {
   align-self: end;
@@ -120,9 +115,12 @@ body {
   background-color: #e0e0e0;
 }
 
-.pin-icon {
+.pin-container .icon:hover {
+  opacity: 0.85;
 }
 
-.pin-icon:hover {
-  opacity: 0.85;
+.icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  opacity: 0.7;
 }

@@ -6,8 +6,8 @@ const Note = ({ note, togglePinned }) => {
   return (
     <div className="note">
       <div className="pin-container" onClick={() => togglePinned(note.id)}>
-        {note.pinned && <MdPushPin className="icon pin-icon" />}
-        {!note.pinned && <MdOutlinePushPin className="icon pin-icon" />}
+        {note.pinned && <MdPushPin className="icon" />}
+        {!note.pinned && <MdOutlinePushPin className="icon" />}
       </div>
       <p>{note.content}</p>
     </div>
