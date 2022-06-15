@@ -6,7 +6,7 @@ const SearchBar = ({ value, onChange }) => {
   return (
     <div className="search-bar">
       <MdSearch className="icon" />
-      <form className="search-form" method="get" role="search">
+      <form onSubmit={(e) => e.preventDefault()} className="search-form" method="get" role="search">
         <input type="text" placeholder="Search" value={value} onChange={onChange} />
       </form>
       <MdCancel className="icon" />
