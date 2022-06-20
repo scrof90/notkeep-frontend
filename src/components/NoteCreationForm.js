@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import styles from './NoteCreationForm.module.css';
 
 const NoteCreationForm = ({ onSubmit, inputValue, onChange }) => {
   return (
-    <form className="note-creation-form" onSubmit={onSubmit}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <input value={inputValue} onChange={onChange} />
       <button type="submit">save</button>
     </form>
