@@ -60,16 +60,6 @@ body {
   height: 48px;
 }
 
-.error {
-  color: red;
-  background: lightgrey;
-  font-size: 20px;
-  border-style: solid;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
 .notes-container {
   display: flex;
   flex-direction: column;
@@ -78,6 +68,12 @@ body {
   margin-top: 3rem;
 }
 
-.note-creation-form {
-  align-self: center;
+.error {
+  color: red;
+  background: lightgrey;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
