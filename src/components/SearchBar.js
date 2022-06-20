@@ -6,7 +6,7 @@ import styles from './SearchBar.module.css';
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   return (
     <form className={styles.form} onSubmit={(e) => e.preventDefault()} method="get" role="search">
-      <MdSearch />
+      <MdSearch className={styles.svg} />
       <input
         className={styles.input}
         type="text"
@@ -15,7 +15,7 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
         onChange={onSearchFilterChange}
       />
       <div className={styles.iconContainer}>
-        <MdClose onClick={onSearchFilterClear} />
+        <MdClose className={styles.svg} onClick={onSearchFilterClear} />
       </div>
     </form>
   );

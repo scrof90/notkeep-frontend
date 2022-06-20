@@ -27,11 +27,24 @@
 }
 
 .iconContainer {
-  align-self: end;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.iconContainer:hover {
+  background-color: #e0e0e0;
+}
+
+.iconContainer svg:hover {
+  opacity: 0.85;
+}
+
+.svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  opacity: 0.7;
 }
