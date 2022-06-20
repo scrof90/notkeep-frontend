@@ -10,6 +10,7 @@ const Note = ({ note, togglePinned }) => {
         {note.pinned && <MdPushPin className={styles.icon} />}
         {!note.pinned && <MdOutlinePushPin className={styles.icon} />}
       </div>
+      {note.title.length > 0 && <h3>{note.title}</h3>}
       <p>{note.content}</p>
     </div>
   );
@@ -18,6 +19,7 @@ const Note = ({ note, togglePinned }) => {
 Note.propTypes = {
   note: PropTypes.exact({
     id: PropTypes.number,
+    title: PropTypes.string,
     content: PropTypes.string,
     date: PropTypes.string,
     pinned: PropTypes.bool
