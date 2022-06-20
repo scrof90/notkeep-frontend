@@ -144,6 +144,11 @@ body {
   line-height: 1.25rem;
 }
 
+svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  opacity: 0.7;
+}
 
 .icon-container {
   align-self: end;
@@ -155,16 +160,10 @@ body {
   justify-content: center;
 }
 
-.icon {
-  width: 1.6rem;
-  height: 1.6rem;
-  opacity: 0.7;
-}
-
 .icon-container:hover {
   background-color: #e0e0e0;
 }
 
-.icon-container .icon:hover {
+.icon-container svg:hover {
   opacity: 0.85;
 }
