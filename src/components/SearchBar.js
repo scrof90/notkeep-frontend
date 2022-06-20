@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md';
-import { MdCancel } from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
 
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   return (
@@ -15,7 +15,7 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
         />
       </form>
       <div className="icon-container">
-        <MdCancel className="icon" onClick={onSearchFilterClear} />
+        <MdClose className="icon" onClick={onSearchFilterClear} />
       </div>
     </div>
   );
