@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: space-around;
   gap: 1rem;
-  min-height: 46px;
-  max-height: 46px;
-  max-width: 720px;
-  padding: 0 0.9rem;
+  min-height: 48px;
+  max-height: 48px;
+  max-width: 690px;
+  padding: 0 1rem;
   border-radius: 8px;
   box-shadow: 0 1px 1px 0 rgba(65,69,73,.3),0 1px 3px 1px rgba(65,69,73,.15);
 }
@@ -28,7 +28,7 @@
 
 .iconContainer {
   border-radius: 50%;
-  width: 2rem;
+  width: 2.2rem;
   height: 2rem;
   display: flex;
   align-items: center;
