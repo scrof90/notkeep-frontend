@@ -3,7 +3,6 @@ import SearchBar from './components/SearchBar';
 import Notes from './components/Notes';
 import NoteCreationForm from './components/NoteCreationForm';
 import Notification from './components/Notification';
-import Footer from './components/Footer';
 import noteService from './services/notes';
 
 const App = () => {
@@ -98,7 +97,6 @@ const App = () => {
           <Notes notes={notesUnpinned} searchFilter={searchFilter} togglePinned={togglePinned} />
         )}
       </div>
-      <Footer />
     </div>
   );
 };
