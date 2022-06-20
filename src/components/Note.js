@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { MdPushPin } from 'react-icons/md';
 import { MdOutlinePushPin } from 'react-icons/md';
+import styles from './Note.module.css';
 
 const Note = ({ note, togglePinned }) => {
   return (
-    <div className="note">
-      <div className="icon-container" onClick={() => togglePinned(note.id)}>
-        {note.pinned && <MdPushPin className="icon" />}
-        {!note.pinned && <MdOutlinePushPin className="icon" />}
+    <div className={styles.note}>
+      <div className={styles.iconContainer} onClick={() => togglePinned(note.id)}>
+        {note.pinned && <MdPushPin className={styles.icon} />}
+        {!note.pinned && <MdOutlinePushPin className={styles.icon} />}
       </div>
       <p>{note.content}</p>
     </div>
