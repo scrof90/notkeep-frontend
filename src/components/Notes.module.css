@@ -1,0 +1,17 @@
+.header {
+  color: #5f6368;
+  letter-spacing: .07272727em;
+  font-size: .6875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
