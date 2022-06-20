@@ -101,7 +101,7 @@ body {
 }
 
 
-.pin-container {
+.icon-container {
   align-self: end;
   border-radius: 50%;
   width: 2rem;
@@ -111,16 +111,16 @@ body {
   justify-content: center;
 }
 
-.pin-container:hover {
-  background-color: #e0e0e0;
-}
-
-.pin-container .icon:hover {
-  opacity: 0.85;
-}
-
 .icon {
   width: 1.6rem;
   height: 1.6rem;
   opacity: 0.7;
+}
+
+.icon-container:hover {
+  background-color: #e0e0e0;
+}
+
+.icon-container .icon:hover {
+  opacity: 0.85;
 }

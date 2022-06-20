@@ -2,21 +2,29 @@ import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md';
 import { MdCancel } from 'react-icons/md';
 
-const SearchBar = ({ value, onChange }) => {
+const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   return (
     <div className="search-bar">
       <MdSearch className="icon" />
       <form onSubmit={(e) => e.preventDefault()} className="search-form" method="get" role="search">
-        <input type="text" placeholder="Search" value={value} onChange={onChange} />
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchFilter}
+          onChange={onSearchFilterChange}
+        />
       </form>
-      <MdCancel className="icon" />
+      <div className="icon-container">
+        <MdCancel className="icon" onClick={onSearchFilterClear} />
+      </div>
     </div>
   );
 };
 
 SearchBar.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  searchFilter: PropTypes.string.isRequired,
+  onSearchFilterChange: PropTypes.func.isRequired,
+  onSearchFilterClear: PropTypes.func.isRequired
 };
 
 export default SearchBar;

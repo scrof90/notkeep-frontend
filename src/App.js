@@ -63,6 +63,7 @@ const App = () => {
 
   const handleNoteChange = (e) => setNewNote(e.target.value);
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
+  const handleSearchFilterClear = () => setSearchFilter('');
 
   const notesPinned = notes.filter((note) => note.pinned);
   const notesUnpinned = notes.filter((note) => !note.pinned);
@@ -77,7 +78,11 @@ const App = () => {
             <h1>NotKeep</h1>
           </div>
         </div>
-        <SearchBar value={searchFilter} onChange={handleSearchFilterChange} />
+        <SearchBar
+          searchFilter={searchFilter}
+          onSearchFilterChange={handleSearchFilterChange}
+          onSearchFilterClear={handleSearchFilterClear}
+        />
         <div>
           <div>tools</div>
           <div>account</div>

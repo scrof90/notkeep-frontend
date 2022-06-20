@@ -5,7 +5,7 @@ import { MdOutlinePushPin } from 'react-icons/md';
 const Note = ({ note, togglePinned }) => {
   return (
     <div className="note">
-      <div className="pin-container" onClick={() => togglePinned(note.id)}>
+      <div className="icon-container" onClick={() => togglePinned(note.id)}>
         {note.pinned && <MdPushPin className="icon" />}
         {!note.pinned && <MdOutlinePushPin className="icon" />}
       </div>
