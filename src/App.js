@@ -70,22 +70,26 @@ const App = () => {
   return (
     <div>
       <header className="topbar">
-        <div>
-          <div>main menu button</div>
+        <div className="logo-container">
+          <div>menu</div>
           <div>
             <div>logo</div>
             <h1>NotKeep</h1>
           </div>
         </div>
-        <SearchBar
-          searchFilter={searchFilter}
-          onSearchFilterChange={handleSearchFilterChange}
-          onSearchFilterClear={handleSearchFilterClear}
-        />
-        <div>
-          <div>tools</div>
-          <div>account</div>
+        <div className="search-container">
+          <SearchBar
+            searchFilter={searchFilter}
+            onSearchFilterChange={handleSearchFilterChange}
+            onSearchFilterClear={handleSearchFilterClear}
+          />
         </div>
+        <div className="tools-container">
+          <div>tools</div>
+          <div>tools</div>
+          <div>tools</div>
+        </div>
+        <div>account</div>
       </header>
       <div className="notes-container">
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />

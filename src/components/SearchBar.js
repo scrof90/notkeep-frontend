@@ -4,20 +4,18 @@ import { MdClose } from 'react-icons/md';
 
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   return (
-    <div className="search-bar">
+    <form className="search-bar" onSubmit={(e) => e.preventDefault()} method="get" role="search">
       <MdSearch className="icon" />
-      <form onSubmit={(e) => e.preventDefault()} className="search-form" method="get" role="search">
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchFilter}
-          onChange={onSearchFilterChange}
-        />
-      </form>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchFilter}
+        onChange={onSearchFilterChange}
+      />
       <div className="icon-container">
         <MdClose className="icon" onClick={onSearchFilterClear} />
       </div>
-    </div>
+    </form>
   );
 };
 

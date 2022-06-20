@@ -9,46 +9,83 @@ body {
 
 .topbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-
+  gap: 2rem;
   position: fixed;
   top: 0;
-  height: fit-content;
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #c8c8c8;
+  max-height: 64px;
+}
+
+.logo-container {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  box-sizing: border-box;
+  font: 13px/27px Roboto,Arial,sans-serif;
+  max-height: 48px;
+  min-width: 232px;
+  max-width: 232px;
+}
+
+.search-container {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: left;
+  align-items: center;
+  box-sizing: border-box;
+  max-height: 46px;
+}
+
+
+.tools-container {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  max-height: 48px;
 }
 
 .search-bar {
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 1rem;
-  min-width: 30%;
+  max-height: 46px;
   max-width: 720px;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 8px;
   box-shadow: 0 1px 1px 0 rgba(65,69,73,.3),0 1px 3px 1px rgba(65,69,73,.15);
 }
 
-.search-form {
-  flex-grow: 1;
-}
-
-.search-form input {
+.search-bar input {
   width: 100%;
   height: 100%;
   border: none;
   font: normal 16px Roboto,Helvetica,Arial,sans-serif;
 }
 
-.search-form input:focus {
+.search-bar input:focus {
   outline: none;
 }
 
-.search-form input::placeholder {
+.search-bar input::placeholder {
   opacity: 0.3;
+}
+
+.tools-container {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  height: 48px;
 }
 
 .error {
