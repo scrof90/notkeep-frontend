@@ -1,19 +1,21 @@
 import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md';
 import { MdClose } from 'react-icons/md';
+import styles from './SearchBar.module.css';
 
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   return (
-    <form className="search-bar" onSubmit={(e) => e.preventDefault()} method="get" role="search">
-      <MdSearch className="icon" />
+    <form className={styles.form} onSubmit={(e) => e.preventDefault()} method="get" role="search">
+      <MdSearch />
       <input
+        className={styles.input}
         type="text"
         placeholder="Search"
         value={searchFilter}
         onChange={onSearchFilterChange}
       />
-      <div className="icon-container">
-        <MdClose className="icon" onClick={onSearchFilterClear} />
+      <div className={styles.iconContainer}>
+        <MdClose onClick={onSearchFilterClear} />
       </div>
     </form>
   );
