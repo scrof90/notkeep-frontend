@@ -4,6 +4,7 @@ import Notes from './components/Notes';
 import NoteCreationForm from './components/NoteCreationForm';
 import Notification from './components/Notification';
 import noteService from './services/notes';
+import styles from './App.module.css';
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -71,30 +72,30 @@ const App = () => {
   );
 
   return (
-    <div>
-      <header className="topbar">
-        <div className="logo-container">
+    <div className={styles.wrapper}>
+      <header className={styles.header}>
+        <div className={styles.logoContainer}>
           <div>menu</div>
           <div>
             <div>logo</div>
             <h1>NotKeep</h1>
           </div>
         </div>
-        <div className="search-container">
+        <div className={styles.searchContainer}>
           <SearchBar
             searchFilter={searchFilter}
             onSearchFilterChange={handleSearchFilterChange}
             onSearchFilterClear={handleSearchFilterClear}
           />
         </div>
-        <div className="tools-container">
+        <div className={styles.toolsContainer}>
           <div>tools</div>
           <div>tools</div>
           <div>tools</div>
         </div>
         <div>account</div>
       </header>
-      <div className="notes-container">
+      <div className={styles.notesContainer}>
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
         <Notification message={errorMessage} />
         {notesFiltered.length > 0 && <Notes notes={notesFiltered} togglePinned={togglePinned} />}
