@@ -6,7 +6,9 @@ import styles from './SearchBar.module.css';
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   return (
     <form className={styles.form} onSubmit={(e) => e.preventDefault()} method="get" role="search">
-      <MdSearch className={styles.icon} />
+      <div className={styles.searchIconContainer}>
+        <MdSearch className={styles.icon} />
+      </div>
       <input
         className={styles.input}
         type="text"

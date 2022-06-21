@@ -1,4 +1,4 @@
-.note {
+.wrapper {
   position: relative;
   width: 206px;
   border: 1px solid #e0e0e0;
@@ -39,8 +39,8 @@
 }
 
 .icon {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 80%;
+  height: auto;
   opacity: 0.7;
 }
 

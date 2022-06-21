@@ -5,7 +5,7 @@ import styles from './Note.module.css';
 
 const Note = ({ note, togglePinned }) => {
   return (
-    <div className={styles.note}>
+    <div className={styles.wrapper}>
       <div className={styles.iconContainer} onClick={() => togglePinned(note.id)}>
         {note.pinned && <MdPushPin className={styles.icon} />}
         {!note.pinned && <MdOutlinePushPin className={styles.icon} />}

@@ -26,6 +26,14 @@
   opacity: 0.3;
 }
 
+.searchIconContainer {
+  width: 2.2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .iconContainer {
   border-radius: 50%;
   width: 2.2rem;
@@ -40,8 +48,8 @@
 }
 
 .icon {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 80%;
+  height: auto;
   opacity: 0.7;
 }
 
