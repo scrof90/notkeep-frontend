@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+  align-items: center;
+  box-sizing: border-box;
+  max-height: 48px;
+  min-width: 200px;
+  max-width: 200px;
+}
+
+.iconContainer {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 100%;
+  height: auto;
+  color: darkorange;
+}
+
+h1 {
+  color: #5f6368;
+  font: 22px Roboto,Arial,sans-serif;
+  line-height: 24px;
+}

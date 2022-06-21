@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Logo from './components/Logo';
 import SearchBar from './components/SearchBar';
 import Notes from './components/Notes';
 import NoteCreationForm from './components/NoteCreationForm';
@@ -74,13 +75,8 @@ const App = () => {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <div className={styles.logoContainer}>
-          <div>menu</div>
-          <div>
-            <div>logo</div>
-            <h1>NotKeep</h1>
-          </div>
-        </div>
+        <div>menu</div>
+        <Logo />
         <div className={styles.searchContainer}>
           <SearchBar
             searchFilter={searchFilter}
