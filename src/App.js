@@ -31,9 +31,11 @@ const App = () => {
     setInitialNotes();
   }, []);
 
+  // TODO: add logic for determining title
   const addNote = async (e) => {
     e.preventDefault();
     const noteObject = {
+      title: '',
       content: newNote,
       date: new Date().toISOString(),
       pinned: false
@@ -64,8 +66,9 @@ const App = () => {
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
 
-  const notesPinned = notes.filter((note) => note.pinned);
-  const notesUnpinned = notes.filter((note) => !note.pinned);
+  const notesFiltered = notes.filter((note) =>
+    note.content.toLowerCase().includes(searchFilter.trim().toLowerCase())
+  );
 
   return (
     <div>
@@ -94,12 +97,7 @@ const App = () => {
       <div className="notes-container">
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
         <Notification message={errorMessage} />
-        {notesPinned.length > 0 && (
-          <Notes notes={notesPinned} searchFilter={searchFilter} togglePinned={togglePinned} />
-        )}
-        {notesUnpinned.length > 0 && (
-          <Notes notes={notesUnpinned} searchFilter={searchFilter} togglePinned={togglePinned} />
-        )}
+        {notesFiltered.length > 0 && <Notes notes={notesFiltered} togglePinned={togglePinned} />}
       </div>
     </div>
   );
