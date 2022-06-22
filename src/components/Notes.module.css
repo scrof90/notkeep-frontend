@@ -1,3 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
 .header {
   color: #5f6368;
   letter-spacing: .07272727em;

@@ -12,6 +12,7 @@ const App = () => {
   const [newNote, setNewNote] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [searchFilter, setSearchFilter] = useState('');
+  const [isListView, setListView] = useState(false);
 
   const handleError = (message) => {
     setErrorMessage(message);
@@ -64,6 +65,8 @@ const App = () => {
     }
   };
 
+  const toggleViewMode = () => setListView(!isListView);
+
   const handleNoteChange = (e) => setNewNote(e.target.value);
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
@@ -86,7 +89,7 @@ const App = () => {
         </div>
         <div className={styles.toolsContainer}>
           <div>Refresh</div>
-          <div>View Mode</div>
+          <div onClick={toggleViewMode}>View Mode</div>
           <div>Dark Theme</div>
         </div>
         <div>Account</div>
@@ -94,7 +97,9 @@ const App = () => {
       <div className={styles.notesContainer}>
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
         <Notification message={errorMessage} />
-        {notesFiltered.length && <Notes notes={notesFiltered} togglePinned={togglePinned} />}
+        {notesFiltered.length && (
+          <Notes notes={notesFiltered} togglePinned={togglePinned} isListView={isListView} />
+        )}
       </div>
     </div>
   );
