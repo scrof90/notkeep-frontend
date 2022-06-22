@@ -1,7 +1,14 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header {
@@ -11,11 +18,10 @@
   font-weight: 500;
   line-height: 1rem;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
   margin-left: 1rem;
 }
 
-.gridView {
+.gridLayout {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -23,7 +29,7 @@
   margin-bottom: 4rem;
 }
 
-.listView {
+.listLayout {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
