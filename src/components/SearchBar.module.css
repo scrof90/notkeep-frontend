@@ -26,33 +26,34 @@
   opacity: 0.3;
 }
 
-.searchIconContainer {
-  width: 2.2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .iconContainer {
-  border-radius: 50%;
-  width: 2.2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.iconContainer:hover {
-  background-color: #e0e0e0;
 }
 
 .icon {
-  width: 80%;
+  width: 100%;
   height: auto;
-  opacity: 0.7;
+  color: #5f6368;
+  opacity: 1;
 }
 
-.icon:hover {
-  opacity: 0.85;
+.button {
+  background: none;
+  color: none;
+  border: none;
+  border-radius: 50%;
 }
+
+.button:hover {
+  background-color: rgba(60,64,67,.08);
+}
+
+.button:active {
+  background-color: rgba(60,64,67,.12);
+}
+
+
