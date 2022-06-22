@@ -21,7 +21,7 @@
 
 .searchContainer {
   display: flex;
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   justify-content: left;
   align-items: center;
   box-sizing: border-box;
@@ -30,7 +30,7 @@
 
 .toolsContainer {
   display: flex;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
