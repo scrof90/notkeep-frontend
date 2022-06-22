@@ -12,7 +12,7 @@ const Notes = ({ notes, togglePinned, isListView }) => {
     <div className={wrapperLayout}>
       {notesPinned.length && <h2 className={styles.header}>Pinned</h2>}
       <div className={notesLayout}>
-        {notesPinned.length > 0 &&
+        {notesPinned.length &&
           notesPinned.map((note) => <Note key={note.id} note={note} togglePinned={togglePinned} />)}
       </div>
       {notesUnpinned.length && <h2 className={styles.header}>Others</h2>}
