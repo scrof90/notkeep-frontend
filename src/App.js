@@ -75,7 +75,7 @@ const App = () => {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <div>menu</div>
+        <div>Main menu</div>
         <Logo />
         <div className={styles.searchContainer}>
           <SearchBar
@@ -85,11 +85,11 @@ const App = () => {
           />
         </div>
         <div className={styles.toolsContainer}>
-          <div>tools</div>
-          <div>tools</div>
-          <div>tools</div>
+          <div>Refresh</div>
+          <div>View Mode</div>
+          <div>Dark Theme</div>
         </div>
-        <div>account</div>
+        <div>Account</div>
       </header>
       <div className={styles.notesContainer}>
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
