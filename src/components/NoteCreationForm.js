@@ -3,7 +3,7 @@ import styles from './NoteCreationForm.module.css';
 
 const NoteCreationForm = ({ onSubmit, inputValue, onChange }) => {
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className={styles.noteCreationForm} onSubmit={onSubmit}>
       <input value={inputValue} onChange={onChange} />
       <button type="submit">save</button>
     </form>

@@ -5,7 +5,12 @@ import styles from './SearchBar.module.css';
 
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   return (
-    <form className={styles.form} onSubmit={(e) => e.preventDefault()} method="get" role="search">
+    <form
+      className={styles.wrapper}
+      onSubmit={(e) => e.preventDefault()}
+      method="get"
+      role="search"
+    >
       <div className={styles.iconContainer}>
         <MdSearch className={styles.icon} />
       </div>

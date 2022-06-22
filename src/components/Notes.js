@@ -8,14 +8,14 @@ const Notes = ({ notes, togglePinned }) => {
 
   return (
     <div>
-      {notesPinned.length > 0 && <h2 className={styles.header}>Pinned</h2>}
-      <div className={styles.notes}>
+      {notesPinned.length && <h2 className={styles.header}>Pinned</h2>}
+      <div className={styles.gridView}>
         {notesPinned.length > 0 &&
           notesPinned.map((note) => <Note key={note.id} note={note} togglePinned={togglePinned} />)}
       </div>
-      {notesUnpinned.length > 0 && <h2 className={styles.header}>Others</h2>}
-      <div className={styles.notes}>
-        {notesUnpinned.length > 0 &&
+      {notesUnpinned.length && <h2 className={styles.header}>Others</h2>}
+      <div className={styles.gridView}>
+        {notesUnpinned.length &&
           notesUnpinned.map((note) => (
             <Note key={note.id} note={note} togglePinned={togglePinned} />
           ))}

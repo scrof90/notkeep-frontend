@@ -94,7 +94,7 @@ const App = () => {
       <div className={styles.notesContainer}>
         <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
         <Notification message={errorMessage} />
-        {notesFiltered.length > 0 && <Notes notes={notesFiltered} togglePinned={togglePinned} />}
+        {notesFiltered.length && <Notes notes={notesFiltered} togglePinned={togglePinned} />}
       </div>
     </div>
   );

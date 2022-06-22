@@ -9,10 +9,19 @@
   margin-left: 1rem;
 }
 
-.notes {
+.gridView {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.listView {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 4rem;
 }

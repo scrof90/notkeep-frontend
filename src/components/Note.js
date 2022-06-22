@@ -13,8 +13,8 @@ const Note = ({ note, togglePinned }) => {
         {note.pinned && <MdPushPin className={styles.icon} />}
         {!note.pinned && <MdOutlinePushPin className={styles.icon} />}
       </button>
-      {note.title.length > 0 && <h3>{note.title}</h3>}
-      <p>{note.content}</p>
+      {note.title.length && <h3 className={styles.title}>{note.title}</h3>}
+      <p className={styles.content}>{note.content}</p>
     </div>
   );
 };
