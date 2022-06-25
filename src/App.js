@@ -22,17 +22,17 @@ const App = () => {
     }, 5000);
   };
 
-  useEffect(() => {
-    const setInitialNotes = async () => {
-      try {
-        const initialNotes = await noteService.getAll();
-        setNotes(initialNotes);
-      } catch {
-        handleError('Failed to fetch notes');
-      }
-    };
+  const fetchAllNotes = async () => {
+    try {
+      const notes = await noteService.getAll();
+      setNotes(notes);
+    } catch {
+      handleError('Failed to fetch notes');
+    }
+  };
 
-    setInitialNotes();
+  useEffect(() => {
+    fetchAllNotes();
   }, []);
 
   // TODO: add logic for determining title
@@ -54,6 +54,8 @@ const App = () => {
     }
   };
 
+  const toggleViewMode = () => setListView(!isListView);
+
   const togglePinned = async (id) => {
     const note = notes.find((n) => n.id === id);
     const changedNote = { ...note, pinned: !note.pinned };
@@ -65,8 +67,6 @@ const App = () => {
       handleError(`Note '${note.content}' was already removed from server`);
     }
   };
-
-  const toggleViewMode = () => setListView(!isListView);
 
   const handleNoteChange = (e) => setNewNote(e.target.value);
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
@@ -89,7 +89,11 @@ const App = () => {
           />
         </div>
         <div className={styles.toolsContainer}>
-          <ToolBar isListView={isListView} toggleViewMode={toggleViewMode} />
+          <ToolBar
+            refresh={fetchAllNotes}
+            isListView={isListView}
+            toggleViewMode={toggleViewMode}
+          />
         </div>
         <div>Account</div>
       </header>
