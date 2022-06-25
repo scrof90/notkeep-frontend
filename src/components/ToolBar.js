@@ -5,13 +5,13 @@ import styles from './ToolBar.module.css';
 const ToolBar = ({ refresh, isListView, toggleViewMode }) => {
   return (
     <div className={styles.wrapper}>
-      <button className={styles.btn} onClick={refresh}>
+      <button onClick={refresh}>
         <MdRefresh />
       </button>
-      <button className={styles.btn} onClick={toggleViewMode}>
+      <button onClick={toggleViewMode}>
         {isListView ? <MdGridView /> : <MdOutlineViewAgenda />}
       </button>
-      <button className={styles.btn}>
+      <button>
         <MdOutlineDarkMode />
       </button>
     </div>

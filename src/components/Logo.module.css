@@ -9,7 +9,7 @@
   max-width: 200px;
 }
 
-.iconContainer {
+.wrapper div {
   width: 2.6rem;
   height: 2.6rem;
   display: flex;
@@ -17,13 +17,13 @@
   justify-content: center;
 }
 
-.icon {
+.wrapper svg {
   width: 100%;
   height: auto;
   color: darkorange;
 }
 
-h1 {
+.wrapper h1 {
   color: #5f6368;
   font: 22px Roboto,Arial,sans-serif;
   line-height: 24px;

@@ -9,8 +9,8 @@ const Note = ({ note, togglePinned }) => {
       <button className={styles.btn} onClick={() => togglePinned(note.id)}>
         {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
-      {note.title.length && <h3 className={styles.title}>{note.title}</h3>}
-      <p className={styles.content}>{note.content}</p>
+      {note.title.length && <h3>{note.title}</h3>}
+      <p>{note.content}</p>
     </div>
   );
 };

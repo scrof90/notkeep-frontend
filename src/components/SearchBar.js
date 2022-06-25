@@ -12,17 +12,16 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
       role="search"
     >
       <div className={styles.iconContainer}>
-        <MdSearch className={styles.icon} />
+        <MdSearch />
       </div>
       <input
-        className={styles.input}
         type="text"
         placeholder="Search"
         value={searchFilter}
         onChange={onSearchFilterChange}
       />
-      <button className={styles.btn} onClick={onSearchFilterClear}>
-        <MdClose className={styles.icon} />
+      <button onClick={onSearchFilterClear}>
+        <MdClose />
       </button>
     </form>
   );

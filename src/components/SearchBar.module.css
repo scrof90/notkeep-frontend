@@ -12,7 +12,7 @@
   box-shadow: 0 1px 1px 0 rgba(65,69,73,.3),0 1px 3px 1px rgba(65,69,73,.15);
 }
 
-.input {
+.wrapper input {
   background: transparent;
   border: none;
   font: normal 16px Roboto,Helvetica,Arial,sans-serif;
@@ -22,7 +22,7 @@
   box-sizing: border-box;
 }
 
-.input::placeholder {
+.wrapper input::placeholder {
   opacity: 0.3;
 }
 
@@ -34,7 +34,7 @@
   justify-content: center;
 }
 
-.btn {
+.wrapper button {
   background: none;
   color: none;
   border: none;
@@ -46,15 +46,15 @@
   justify-content: center;
 }
 
-.btn:hover {
+.wrapper button:hover {
   background-color: rgba(60,64,67,.08);
 }
 
-.btn:active {
+.wrapper button:active {
   background-color: rgba(60,64,67,.12);
 }
 
-.icon {
+.wrapper svg {
   flex: 0 0 auto;
   width: 70%;
   height: auto;

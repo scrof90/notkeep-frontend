@@ -6,7 +6,7 @@
   min-width: 144px;
 }
 
-.btn {
+.wrapper button {
   background: none;
   color: none;
   border: none;
@@ -18,21 +18,21 @@
   justify-content: center;
 }
 
-.btn:hover {
+.wrapper button:hover {
   background-color: rgba(60,64,67,.08);
 }
 
-.btn:active {
+.wrapper button:active {
   background-color: rgba(60,64,67,.12);
 }
 
-.btn svg {
+.wrapper svg {
   width: 60%;
   height: auto;
   opacity: 0.6;
   transition: opacity 0.218s ease-in;
 }
 
-.btn svg:hover {
+.wrapper svg:hover {
   opacity: 1;
 }

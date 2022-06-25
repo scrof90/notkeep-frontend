@@ -4,8 +4,8 @@ import styles from './Logo.module.css';
 const Logo = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.iconContainer}>
-        <MdInsertDriveFile className={styles.icon} />
+      <div>
+        <MdInsertDriveFile />
       </div>
       <h1>NotKeep</h1>
     </div>
