@@ -6,12 +6,8 @@ import styles from './Note.module.css';
 const Note = ({ note, togglePinned }) => {
   return (
     <div className={styles.wrapper}>
-      <button
-        className={`${styles.button} ${styles.iconContainer}`}
-        onClick={() => togglePinned(note.id)}
-      >
-        {note.pinned && <MdPushPin className={styles.icon} />}
-        {!note.pinned && <MdOutlinePushPin className={styles.icon} />}
+      <button className={styles.btn} onClick={() => togglePinned(note.id)}>
+        {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
       {note.title.length && <h3 className={styles.title}>{note.title}</h3>}
       <p className={styles.content}>{note.content}</p>

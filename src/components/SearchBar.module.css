@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: space-around;
   gap: 1rem;
@@ -27,33 +27,38 @@
 }
 
 .iconContainer {
-  width: 2.5rem;
-  height: 2.2rem;
   display: flex;
+  flex: 0 0 2.5rem;
+  min-height: 2.5rem;
   align-items: center;
   justify-content: center;
 }
 
-.icon {
-  width: 100%;
-  height: auto;
-  color: #5f6368;
-  opacity: 1;
-}
-
-.button {
+.btn {
   background: none;
   color: none;
   border: none;
   border-radius: 50%;
+  display: flex;
+  flex: 0 0 2.5rem;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
 }
 
-.button:hover {
+.btn:hover {
   background-color: rgba(60,64,67,.08);
 }
 
-.button:active {
+.btn:active {
   background-color: rgba(60,64,67,.12);
 }
 
+.icon {
+  flex: 0 0 auto;
+  width: 70%;
+  height: auto;
+  color: #5f6368;
+  opacity: 1;
+}
 

@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 48px;
+  min-width: 144px;
+}
+
+.btn {
+  background: none;
+  color: none;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  flex: 0 0 3rem;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: rgba(60,64,67,.08);
+}
+
+.btn:active {
+  background-color: rgba(60,64,67,.12);
+}
+
+.btn svg {
+  width: 60%;
+  height: auto;
+  opacity: 0.6;
+  transition: opacity 0.218s ease-in;
+}
+
+.btn svg:hover {
+  opacity: 1;
+}

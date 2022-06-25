@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './components/Logo';
 import SearchBar from './components/SearchBar';
+import ToolBar from './components/ToolBar';
 import Notes from './components/Notes';
 import NoteCreationForm from './components/NoteCreationForm';
 import Notification from './components/Notification';
@@ -88,9 +89,7 @@ const App = () => {
           />
         </div>
         <div className={styles.toolsContainer}>
-          <div>Refresh</div>
-          <div onClick={toggleViewMode}>View Mode</div>
-          <div>Dark Theme</div>
+          <ToolBar isListView={isListView} toggleViewMode={toggleViewMode} />
         </div>
         <div>Account</div>
       </header>

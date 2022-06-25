@@ -25,7 +25,12 @@
   line-height: 1.25rem;
 }
 
-.iconContainer {
+.btn {
+  background: none;
+  color: none;
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.218s ease-in;
   position: absolute;
   right: 12px;
   top: 6px;
@@ -37,32 +42,23 @@
   justify-content: center;
 }
 
-.icon {
+.btn:hover {
+  background-color: rgba(60,64,67,.08);
+}
+
+.btn:active {
+  background-color: rgba(60,64,67,.12);
+}
+
+.btn svg {
+  flex: 0 0 auto;
   border-radius: 50%;
   width: 100%;
   height: auto;
-  color: black;
   opacity: 0.6;
   transition: opacity 0.218s ease-in;
 }
 
-.icon:hover {
+.btn svg:hover {
   opacity: 1;
 }
-
-.button {
-  background: none;
-  color: none;
-  border: none;
-  border-radius: 50%;
-  transition: background-color 0.218s ease-in;
-}
-
-.button:hover {
-  background-color: rgba(60,64,67,.08);
-}
-
-.button:active {
-  background-color: rgba(60,64,67,.12);
-}
-

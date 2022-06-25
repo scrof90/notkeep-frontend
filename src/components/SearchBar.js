@@ -21,7 +21,7 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
         value={searchFilter}
         onChange={onSearchFilterChange}
       />
-      <button className={`${styles.button} ${styles.iconContainer}`} onClick={onSearchFilterClear}>
+      <button className={styles.btn} onClick={onSearchFilterClear}>
         <MdClose className={styles.icon} />
       </button>
     </form>
