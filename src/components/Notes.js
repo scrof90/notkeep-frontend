@@ -10,14 +10,14 @@ const Notes = ({ notes, togglePinned, isListView }) => {
 
   return (
     <div className={wrapperLayout}>
-      {notesPinned.length && <h2>Pinned</h2>}
+      {notesPinned.length > 0 && <h2>Pinned</h2>}
       <div className={notesLayout}>
-        {notesPinned.length &&
+        {notesPinned.length > 0 &&
           notesPinned.map((note) => <Note key={note.id} note={note} togglePinned={togglePinned} />)}
       </div>
-      {notesUnpinned.length && <h2>Others</h2>}
+      {notesUnpinned.length > 0 && <h2>Others</h2>}
       <div className={notesLayout}>
-        {notesUnpinned.length &&
+        {notesUnpinned.length > 0 &&
           notesUnpinned.map((note) => (
             <Note key={note.id} note={note} togglePinned={togglePinned} />
           ))}
