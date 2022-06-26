@@ -1,3 +1,37 @@
-.noteCreationForm {
-  align-self: center;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  min-height: 134px;
+  min-width: 560px;
+  max-width: 560px;
+  padding: 0 1rem;
+  border-radius: 8px;
+  background-color: white;
+  border-color: #e0e0e0;
+  box-shadow: 0 3px 5px rgba(0,0,0,.20);
+  transition-duration: 0.218s;
+  transition-timing-function: ease-in;
+}
+
+.blurred {
+  min-height: 48px;
+  max-height: 48px;
+}
+
+.wrapper input {
+  background: transparent;
+  border: none;
+  font: normal 16px Roboto,Helvetica,Arial,sans-serif;
+  height: 46px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wrapper input::placeholder {
+  opacity: 0.8;
 }

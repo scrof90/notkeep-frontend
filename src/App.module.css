@@ -6,6 +6,7 @@
 }
 
 .header {
+  background-color: white;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -38,4 +39,8 @@
   gap: 1rem;
   padding: 3rem;
   margin-top: 3rem;
+}
+
+.notesContainer :first-child {
+  align-self: center;
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './NoteCreationForm.module.css';
 
@@ -10,12 +11,32 @@ const NoteCreationForm = ({
   onContentChange,
   onPinnedChange
 }) => {
+  const [isBlurred, setIsBlurred] = useState(true);
+  const handleOnFocusChange = () => setIsBlurred(!isBlurred);
+
   return (
-    <form className={styles.noteCreationForm} onSubmit={onSubmit}>
-      <input type="text" value={inputTitleValue} onChange={onTitleChange} />
-      <input type="text" value={inputContentValue} onChange={onContentChange} />
-      <input type="checkbox" value={inputPinnedValue} onChange={onPinnedChange} />
-      <button type="submit">save</button>
+    <form
+      onFocus={handleOnFocusChange}
+      onBlur={handleOnFocusChange}
+      className={`${styles.wrapper} ${isBlurred && styles.blurred}`}
+      onSubmit={onSubmit}
+    >
+      {!isBlurred && (
+        <input
+          type="textarea"
+          value={inputTitleValue}
+          onChange={onTitleChange}
+          placeholder="Title"
+        />
+      )}
+      <input
+        type="textarea"
+        value={inputContentValue}
+        onChange={onContentChange}
+        placeholder="Take a note..."
+      />
+      {!isBlurred && <input type="checkbox" value={inputPinnedValue} onChange={onPinnedChange} />}
+      {!isBlurred && <button type="submit">save</button>}
     </form>
   );
 };
