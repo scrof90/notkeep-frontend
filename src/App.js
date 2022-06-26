@@ -16,6 +16,9 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [searchFilter, setSearchFilter] = useState('');
   const [isListView, setListView] = useState(false);
+  const notesFiltered = notes.filter((note) =>
+    note.content.toLowerCase().includes(searchFilter.trim().toLowerCase())
+  );
 
   const handleError = (message) => {
     setErrorMessage(message);
@@ -37,7 +40,6 @@ const App = () => {
     fetchAllNotes();
   }, []);
 
-  // TODO: add logic for determining title
   const addNote = async (e) => {
     e.preventDefault();
     const noteObject = {
@@ -77,10 +79,6 @@ const App = () => {
   const handleNotePinnedChange = (e) => setNewNotePinned(e.target.checked);
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
-
-  const notesFiltered = notes.filter((note) =>
-    note.content.toLowerCase().includes(searchFilter.trim().toLowerCase())
-  );
 
   return (
     <div className={styles.wrapper}>
