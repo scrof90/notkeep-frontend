@@ -112,7 +112,7 @@ const App = () => {
           onPinnedChange={handleNotePinnedChange}
         />
         <Notification message={errorMessage} />
-        {notesFiltered.length && (
+        {notesFiltered.length > 0 && (
           <Notes notes={notesFiltered} togglePinned={togglePinned} isListView={isListView} />
         )}
       </div>
