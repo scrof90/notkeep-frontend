@@ -10,7 +10,9 @@ import styles from './App.module.css';
 
 const App = () => {
   const [notes, setNotes] = useState([]);
-  const [newNote, setNewNote] = useState('');
+  const [newNoteTitle, setNewNoteTitle] = useState('');
+  const [newNoteContent, setNewNoteContent] = useState('');
+  const [newNotePinned, setNewNotePinned] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [searchFilter, setSearchFilter] = useState('');
   const [isListView, setListView] = useState(false);
@@ -39,16 +41,18 @@ const App = () => {
   const addNote = async (e) => {
     e.preventDefault();
     const noteObject = {
-      title: '',
-      content: newNote,
+      title: newNoteTitle,
+      content: newNoteContent,
       date: new Date().toISOString(),
-      pinned: false
+      pinned: newNotePinned
     };
 
     try {
       const returnedNote = await noteService.create(noteObject);
       setNotes(notes.concat(returnedNote));
-      setNewNote('');
+      setNewNoteTitle('');
+      setNewNoteContent('');
+      setNewNotePinned(false);
     } catch {
       handleError('Note creation failed, please try again');
     }
@@ -68,7 +72,9 @@ const App = () => {
     }
   };
 
-  const handleNoteChange = (e) => setNewNote(e.target.value);
+  const handleNoteTitleChange = (e) => setNewNoteTitle(e.target.value);
+  const handleNoteContentChange = (e) => setNewNoteContent(e.target.value);
+  const handleNotePinnedChange = (e) => setNewNotePinned(e.target.checked);
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
 
@@ -98,7 +104,15 @@ const App = () => {
         <div>Account</div>
       </header>
       <div className={styles.notesContainer}>
-        <NoteCreationForm onSubmit={addNote} inputValue={newNote} onChange={handleNoteChange} />
+        <NoteCreationForm
+          onSubmit={addNote}
+          inputTitleValue={newNoteTitle}
+          inputContentValue={newNoteContent}
+          inputPinnedValue={newNotePinned}
+          onTitleChange={handleNoteTitleChange}
+          onContentChange={handleNoteContentChange}
+          onPinnedChange={handleNotePinnedChange}
+        />
         <Notification message={errorMessage} />
         {notesFiltered.length && (
           <Notes notes={notesFiltered} togglePinned={togglePinned} isListView={isListView} />
