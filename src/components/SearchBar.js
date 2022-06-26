@@ -1,12 +1,18 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md';
 import { MdClose } from 'react-icons/md';
 import styles from './SearchBar.module.css';
 
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
+  const [isBlurred, setIsBlurred] = useState(true);
+  const handleOnFocusChange = () => setIsBlurred(!isBlurred);
+
   return (
     <form
-      className={styles.wrapper}
+      onFocus={handleOnFocusChange}
+      onBlur={handleOnFocusChange}
+      className={`${styles.wrapper} ${isBlurred && styles.blurred}`}
       onSubmit={(e) => e.preventDefault()}
       method="get"
       role="search"
