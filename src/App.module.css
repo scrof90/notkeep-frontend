@@ -64,10 +64,10 @@
 
 .noteCreationFormContainer {
   flex: 1 1 auto;
-  min-width: fit-content;
   max-width: 560px;
   align-self: center;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: stretch;
   justify-content: center;
 }
