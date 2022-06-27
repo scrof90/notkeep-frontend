@@ -56,6 +56,7 @@
 .notesContainer {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 1rem;
   padding: 3rem;
   margin-top: 3rem;
@@ -63,6 +64,9 @@
 
 .noteCreationFormContainer {
   flex: 1 1 auto;
+  min-width: fit-content;
+  max-width: 560px;
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
