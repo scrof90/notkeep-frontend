@@ -1,4 +1,5 @@
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -6,7 +7,6 @@
   justify-content: space-around;
   gap: 0.5rem;
   min-height: 134px;
-  min-width: 560px;
   max-width: 560px;
   padding: 0 1rem;
   border-radius: 8px;
@@ -26,7 +26,6 @@
   background: transparent;
   border: none;
   font: normal 16px Roboto,Helvetica,Arial,sans-serif;
-  height: 46px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
@@ -34,4 +33,42 @@
 
 .wrapper input::placeholder {
   opacity: 0.8;
+}
+
+.pin {
+  background: none;
+  color: none;
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.218s ease-in;
+  position: absolute;
+  right: 12px;
+  top: 6px;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin:hover {
+  background-color: rgba(60,64,67,.08);
+}
+
+.pin:active {
+  background-color: rgba(60,64,67,.12);
+}
+
+.pin svg {
+  flex: 0 0 auto;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+  transition: opacity 0.218s ease-in;
+}
+
+.pin:hover {
+  opacity: 1;
 }

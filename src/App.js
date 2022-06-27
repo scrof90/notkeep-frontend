@@ -76,7 +76,7 @@ const App = () => {
 
   const handleNoteTitleChange = (e) => setNewNoteTitle(e.target.value);
   const handleNoteContentChange = (e) => setNewNoteContent(e.target.value);
-  const handleNotePinnedChange = (e) => setNewNotePinned(e.target.checked);
+  const handleNotePinnedChange = () => setNewNotePinned(!newNotePinned);
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
 
@@ -102,15 +102,17 @@ const App = () => {
         <div>Account</div>
       </header>
       <div className={styles.notesContainer}>
-        <NoteCreationForm
-          onSubmit={addNote}
-          inputTitleValue={newNoteTitle}
-          inputContentValue={newNoteContent}
-          inputPinnedValue={newNotePinned}
-          onTitleChange={handleNoteTitleChange}
-          onContentChange={handleNoteContentChange}
-          onPinnedChange={handleNotePinnedChange}
-        />
+        <div className={styles.noteCreationFormContainer}>
+          <NoteCreationForm
+            onSubmit={addNote}
+            titleValue={newNoteTitle}
+            contentValue={newNoteContent}
+            pinnedValue={newNotePinned}
+            onTitleChange={handleNoteTitleChange}
+            onContentChange={handleNoteContentChange}
+            onPinnedChange={handleNotePinnedChange}
+          />
+        </div>
         <Notification message={errorMessage} />
         {notesFiltered.length > 0 && (
           <Notes notes={notesFiltered} togglePinned={togglePinned} isListView={isListView} />

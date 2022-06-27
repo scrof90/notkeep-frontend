@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
 import styles from './NoteCreationForm.module.css';
 
 const NoteCreationForm = ({
   onSubmit,
-  inputTitleValue,
-  inputContentValue,
-  inputPinnedValue,
+  titleValue,
+  contentValue,
+  pinnedValue,
   onTitleChange,
   onContentChange,
   onPinnedChange
@@ -22,20 +23,19 @@ const NoteCreationForm = ({
       onSubmit={onSubmit}
     >
       {!isBlurred && (
-        <input
-          type="textarea"
-          value={inputTitleValue}
-          onChange={onTitleChange}
-          placeholder="Title"
-        />
+        <button className={styles.pin} value={pinnedValue} onChange={onPinnedChange}>
+          {pinnedValue ? <MdPushPin /> : <MdOutlinePushPin />}
+        </button>
+      )}
+      {!isBlurred && (
+        <input type="textarea" value={titleValue} onChange={onTitleChange} placeholder="Title" />
       )}
       <input
         type="textarea"
-        value={inputContentValue}
+        value={contentValue}
         onChange={onContentChange}
         placeholder="Take a note..."
       />
-      {!isBlurred && <input type="checkbox" value={inputPinnedValue} onChange={onPinnedChange} />}
       {!isBlurred && <button type="submit">save</button>}
     </form>
   );
@@ -43,9 +43,9 @@ const NoteCreationForm = ({
 
 NoteCreationForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  inputTitleValue: PropTypes.string.isRequired,
-  inputContentValue: PropTypes.string.isRequired,
-  inputPinnedValue: PropTypes.bool.isRequired,
+  titleValue: PropTypes.string.isRequired,
+  contentValue: PropTypes.string.isRequired,
+  pinnedValue: PropTypes.bool.isRequired,
   onTitleChange: PropTypes.func.isRequired,
   onContentChange: PropTypes.func.isRequired,
   onPinnedChange: PropTypes.func.isRequired

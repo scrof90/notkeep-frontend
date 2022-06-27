@@ -41,6 +41,9 @@
   margin-top: 3rem;
 }
 
-.notesContainer :first-child {
+.noteCreationFormContainer {
   align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
