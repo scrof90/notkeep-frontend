@@ -1,9 +1,9 @@
 .wrapper {
+  min-height: 48px;
+  min-width: 144px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  min-height: 48px;
-  min-width: 144px;
 }
 
 .wrapper button {

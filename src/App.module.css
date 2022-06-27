@@ -3,14 +3,18 @@
   direction: ltr;
   font-family: "Roboto", Helvetica,Arial,sans-serif;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .header {
   background-color: white;
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
   position: fixed;
   top: 0;
   width: 100%;
@@ -20,17 +24,33 @@
   box-shadow: inset 0 -1px 0 0 #dadce0;
 }
 
-.searchContainer {
+.logoContainer {
+  flex: 1 1 auto;
+  min-width: fit-content;
+  max-width: 200px;
   display: flex;
-  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchContainer {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-width: fit-content;
+  display: flex;
   justify-content: left;
   align-items: center;
-  box-sizing: border-box;
   max-height: 48px;
 }
 
 .toolsContainer {
-  padding-right: 2rem;
+  flex: 1 1 auto;
+  min-width: fit-content;
+  max-width: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1rem;
 }
 
 .notesContainer {
@@ -42,7 +62,7 @@
 }
 
 .noteCreationFormContainer {
-  align-self: center;
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -84,7 +84,9 @@ const App = () => {
     <div className={styles.wrapper}>
       <header className={styles.header}>
         <div>Main menu</div>
-        <Logo />
+        <div className={styles.logoContainer}>
+          <Logo />
+        </div>
         <div className={styles.searchContainer}>
           <SearchBar
             searchFilter={searchFilter}

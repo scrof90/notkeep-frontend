@@ -1,11 +1,10 @@
 .wrapper {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  flex: 1 0 auto;
   align-items: center;
-  box-sizing: border-box;
   max-height: 48px;
-  min-width: 200px;
+  min-width: fit-content;
   max-width: 200px;
 }
 

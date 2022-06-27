@@ -7,14 +7,13 @@
   justify-content: space-around;
   gap: 0.5rem;
   min-height: 134px;
+  min-width: 170px;
   max-width: 560px;
   padding: 0 1rem;
   border-radius: 8px;
   background-color: white;
   border-color: #e0e0e0;
   box-shadow: 0 3px 5px rgba(0,0,0,.20);
-  transition-duration: 0.218s;
-  transition-timing-function: ease-in;
 }
 
 .blurred {

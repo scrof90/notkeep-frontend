@@ -2,12 +2,12 @@
   display: flex;
   flex: 1 1 auto;
   align-items: center;
-  justify-content: space-around;
-  gap: 1rem;
+  justify-content: space-between;
   min-height: 48px;
   max-height: 48px;
+  min-width: 170px;
   max-width: 690px;
-  padding: 0 1rem;
+  padding: 0 0.6rem;
   border-radius: 8px;
   box-shadow: 0 1px 1px 0 rgba(65,69,73,.3),0 1px 3px 1px rgba(65,69,73,.15);
   transition: box-shadow 0.218s ease-in;
