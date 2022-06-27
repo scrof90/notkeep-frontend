@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  align-self: center;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -7,7 +8,7 @@
   justify-content: space-around;
   gap: 0.5rem;
   min-height: 134px;
-  min-width: 170px;
+  min-width: fit-content;
   max-width: 560px;
   padding: 0 1rem;
   border-radius: 8px;
