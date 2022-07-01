@@ -24,21 +24,29 @@ const NoteCreationForm = ({
         className={`${styles.wrapper} ${isBlurred && styles.blurred}`}
         onSubmit={onSubmit}
       >
-        {!isBlurred && (
-          <button className={styles.pin} value={pinnedValue} onChange={onPinnedChange}>
-            {pinnedValue ? <MdPushPin /> : <MdOutlinePushPin />}
-          </button>
-        )}
-        {!isBlurred && (
-          <input type="textarea" value={titleValue} onChange={onTitleChange} placeholder="Title" />
-        )}
+        <button
+          className={isBlurred ? styles.hidden : styles.pin}
+          value={pinnedValue}
+          onChange={onPinnedChange}
+        >
+          {pinnedValue ? <MdPushPin /> : <MdOutlinePushPin />}
+        </button>
+        <input
+          className={isBlurred && styles.hidden}
+          type="textarea"
+          value={titleValue}
+          onChange={onTitleChange}
+          placeholder="Title"
+        />
         <input
           type="textarea"
           value={contentValue}
           onChange={onContentChange}
           placeholder="Take a note..."
         />
-        {!isBlurred && <button type="submit">save</button>}
+        <button className={isBlurred && styles.hidden} type="submit">
+          save
+        </button>
       </form>
     </OutsideClickHandler>
   );

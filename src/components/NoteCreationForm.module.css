@@ -8,7 +8,7 @@
   justify-content: space-around;
   gap: 0.5rem;
   min-height: 134px;
-  min-width: fit-content;
+  min-width: 560px;
   max-width: 560px;
   padding: 0 1rem;
   border-radius: 8px;
@@ -71,4 +71,8 @@
 
 .pin:hover {
   opacity: 1;
+}
+
+.hidden {
+  display: none;
 }
