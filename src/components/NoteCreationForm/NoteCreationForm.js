@@ -21,7 +21,7 @@ const NoteCreationForm = ({
     <OutsideClickHandler onOutsideClick={handleBlur}>
       <form
         onFocus={handleFocus}
-        className={`${classes.wrapper} ${isBlurred && classes.blurred}`}
+        className={`${classes.noteCreationForm} ${isBlurred && classes.blurred}`}
         onSubmit={onSubmit}
       >
         <button

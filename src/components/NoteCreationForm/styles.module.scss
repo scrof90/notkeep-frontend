@@ -1,4 +1,6 @@
-.wrapper {
+@import '../../assets/mixins';
+
+.noteCreationForm {
   position: relative;
   align-self: center;
   display: flex;
@@ -12,9 +14,24 @@
   max-width: 560px;
   padding: 0 1rem;
   border-radius: 8px;
-  background-color: white;
-  border-color: #e0e0e0;
-  box-shadow: 0 3px 5px rgba(0,0,0,.20);
+  background-color: $white;
+  border-color: $light-grey;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: $font-size + 3;
+    @include primeFont();
+  }
+
+  input::placeholder {
+    opacity: 0.8;
+  }
 }
 
 .blurred {
@@ -22,55 +39,38 @@
   max-height: 48px;
 }
 
-.wrapper input {
-  background: transparent;
-  border: none;
-  font: normal 16px Roboto,Helvetica,Arial,sans-serif;
-  outline: none;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.wrapper input::placeholder {
-  opacity: 0.8;
-}
-
 .pin {
   background: none;
   color: none;
   border: none;
   border-radius: 50%;
-  transition: background-color 0.218s ease-in;
   position: absolute;
   right: 12px;
   top: 6px;
-  border-radius: 50%;
   width: 2.2rem;
   height: 2.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.218s ease-in;
+
+  svg {
+    flex: 0 0 auto;
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.218s ease-in;
+  }
 }
 
 .pin:hover {
-  background-color: rgba(60,64,67,.08);
+  background-color: rgba(60, 64, 67, 0.08);
+  opacity: 1;
 }
 
 .pin:active {
-  background-color: rgba(60,64,67,.12);
-}
-
-.pin svg {
-  flex: 0 0 auto;
-  border-radius: 50%;
-  width: 100%;
-  height: auto;
-  opacity: 0.6;
-  transition: opacity 0.218s ease-in;
-}
-
-.pin:hover {
-  opacity: 1;
+  background-color: rgba(60, 64, 67, 0.12);
 }
 
 .hidden {
