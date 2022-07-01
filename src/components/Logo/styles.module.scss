@@ -1,4 +1,6 @@
-.wrapper {
+@import '../../assets/mixins';
+
+.logo {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -6,24 +8,25 @@
   max-height: 48px;
   min-width: fit-content;
   max-width: 200px;
+
+  h1 {
+    color: $secondary-color;
+    font-size: $font-size * 1.5;
+    @include primeFont();
+    line-height: 24px;
+  }
 }
 
-.wrapper div {
+.iconContainer {
   width: 2.6rem;
   height: 2.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.wrapper svg {
-  width: 100%;
-  height: auto;
-  color: darkorange;
-}
-
-.wrapper h1 {
-  color: #5f6368;
-  font: 22px Roboto,Arial,sans-serif;
-  line-height: 24px;
+  svg {
+    color: $logo-color;
+    width: 100%;
+    height: auto;
+  }
 }
