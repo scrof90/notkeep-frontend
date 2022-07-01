@@ -1,27 +1,37 @@
-.wrapper {
-  color: #202124;
+@import "./assets/mixins";
+
+body {
   direction: ltr;
-  font-family: "Roboto", Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  background-color: $white;
+  color: $primary-color;
+  font-size: $font-size;
+  @include primeFont();
+  min-width: 360px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-}
 
-.header {
-  background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 0.5rem;
-  min-height: 48px;
-  max-height: 48px;
-  box-shadow: inset 0 -1px 0 0 #dadce0;
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.5rem;
+    min-height: 48px;
+    max-height: 48px;
+    box-shadow: inset 0 -1px 0 0 $light-grey;
+  }
 }
 
 .logoContainer {

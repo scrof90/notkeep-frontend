@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Logo from './components/Logo';
-import SearchBar from './components/SearchBar';
-import ToolBar from './components/ToolBar';
-import Notes from './components/Notes';
-import NoteCreationForm from './components/NoteCreationForm';
-import Notification from './components/Notification';
+import Logo from './components/Logo/Logo';
+import SearchBar from './components/SearchBar/SearchBar';
+import ToolBar from './components/ToolBar/ToolBar';
+import Notes from './components/Notes/Notes';
+import NoteCreationForm from './components/NoteCreationForm/NoteCreationForm';
+import Notification from './components/Notification/Notification';
 import noteService from './services/notes';
-import styles from './App.module.css';
+import classes from './styles.module.scss';
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -81,20 +81,20 @@ const App = () => {
   const handleSearchFilterClear = () => setSearchFilter('');
 
   return (
-    <div className={styles.wrapper}>
-      <header className={styles.header}>
+    <div className={classes.app}>
+      <header>
         <div>Main menu</div>
-        <div className={styles.logoContainer}>
+        <div className={classes.logoContainer}>
           <Logo />
         </div>
-        <div className={styles.searchContainer}>
+        <div className={classes.searchContainer}>
           <SearchBar
             searchFilter={searchFilter}
             onSearchFilterChange={handleSearchFilterChange}
             onSearchFilterClear={handleSearchFilterClear}
           />
         </div>
-        <div className={styles.toolsContainer}>
+        <div className={classes.toolsContainer}>
           <ToolBar
             refresh={fetchAllNotes}
             isListView={isListView}
@@ -103,8 +103,8 @@ const App = () => {
         </div>
         <div>Account</div>
       </header>
-      <div className={styles.notesContainer}>
-        <div className={styles.noteCreationFormContainer}>
+      <div className={classes.notesContainer}>
+        <div className={classes.noteCreationFormContainer}>
           <NoteCreationForm
             onSubmit={addNote}
             titleValue={newNoteTitle}

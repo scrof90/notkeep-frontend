@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import Note from './Note';
-import styles from './Notes.module.css';
+import Note from './Note/Note';
+import classes from './styles.module.scss';
 
 const Notes = ({ notes, togglePinned, isListView }) => {
   const notesPinned = notes.filter((note) => note.pinned);
   const notesUnpinned = notes.filter((note) => !note.pinned);
-  const wrapperLayout = isListView ? `${styles.wrapper} ${styles.centered}` : styles.wrapper;
-  const notesLayout = isListView ? styles.listLayout : styles.gridLayout;
+  const wrapperLayout = isListView ? `${classes.wrapper} ${classes.centered}` : classes.wrapper;
+  const notesLayout = isListView ? classes.listLayout : classes.gridLayout;
 
   return (
     <div className={wrapperLayout}>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
-import styles from './NoteCreationForm.module.css';
+import classes from './styles.module.scss';
 
 const NoteCreationForm = ({
   onSubmit,
@@ -21,24 +21,32 @@ const NoteCreationForm = ({
     <OutsideClickHandler onOutsideClick={handleBlur}>
       <form
         onFocus={handleFocus}
-        className={`${styles.wrapper} ${isBlurred && styles.blurred}`}
+        className={`${classes.wrapper} ${isBlurred && classes.blurred}`}
         onSubmit={onSubmit}
       >
-        {!isBlurred && (
-          <button className={styles.pin} value={pinnedValue} onChange={onPinnedChange}>
-            {pinnedValue ? <MdPushPin /> : <MdOutlinePushPin />}
-          </button>
-        )}
-        {!isBlurred && (
-          <input type="textarea" value={titleValue} onChange={onTitleChange} placeholder="Title" />
-        )}
+        <button
+          className={isBlurred ? classes.hidden : classes.pin}
+          value={pinnedValue}
+          onChange={onPinnedChange}
+        >
+          {pinnedValue ? <MdPushPin /> : <MdOutlinePushPin />}
+        </button>
+        <input
+          className={isBlurred && classes.hidden}
+          type="textarea"
+          value={titleValue}
+          onChange={onTitleChange}
+          placeholder="Title"
+        />
         <input
           type="textarea"
           value={contentValue}
           onChange={onContentChange}
           placeholder="Take a note..."
         />
-        {!isBlurred && <button type="submit">save</button>}
+        <button className={isBlurred && classes.hidden} type="submit">
+          save
+        </button>
       </form>
     </OutsideClickHandler>
   );
