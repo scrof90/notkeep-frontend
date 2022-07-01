@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import styles from './Notification.module.css';
+import classes from './styles.module.scss';
 
 const Notification = ({ message }) => {
   if (message === null) {
     return null;
   }
 
-  return <div className={styles.error}>{message}</div>;
+  return <div className={classes.error}>{message}</div>;
 };
 
 Notification.propTypes = {

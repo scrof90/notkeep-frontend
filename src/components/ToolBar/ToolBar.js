@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { MdRefresh, MdOutlineViewAgenda, MdGridView, MdOutlineDarkMode } from 'react-icons/md';
-import styles from './ToolBar.module.css';
+import classes from './styles.module.scss';
 
 const ToolBar = ({ refresh, isListView, toggleViewMode }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={classes.wrapper}>
       <button onClick={refresh}>
         <MdRefresh />
       </button>

@@ -1,9 +1,9 @@
 import { MdInsertDriveFile } from 'react-icons/md';
-import styles from './Logo.module.css';
+import classes from './styles.module.scss';
 
 const Logo = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={classes.wrapper}>
       <div>
         <MdInsertDriveFile />
       </div>
