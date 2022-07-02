@@ -2,17 +2,19 @@
 
 .noteCreationForm {
   position: relative;
+  flex: 1 1 auto;
   align-self: center;
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-around;
   gap: 0.5rem;
   min-height: 134px;
   min-width: 560px;
   max-width: 560px;
   padding: 0 1rem;
+  border-style: solid;
+  border-width: 1px;
   border-radius: 8px;
   background-color: $white;
   border-color: $light-grey;
@@ -28,51 +30,72 @@
     font-size: $font-size + 3;
     @include primeFont();
   }
-
   input::placeholder {
     opacity: 0.8;
+  }
+
+  .pinBtn {
+    background: none;
+    color: none;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.218s ease-in;
+
+    svg {
+      flex: 0 0 auto;
+      border-radius: 50%;
+      width: 100%;
+      height: auto;
+      opacity: 0.6;
+      transition: opacity 0.218s ease-in;
+    }
+  }
+  .pinBtn:hover {
+    background-color: rgba(60, 64, 67, 0.08);
+    opacity: 1;
+  }
+  .pinBtn:active {
+    background-color: rgba(60, 64, 67, 0.12);
+  }
+
+  .bottomBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .saveBtn {
+      background: none;
+      color: none;
+      border: none;
+      border-radius: 4px;
+      width: 4rem;
+      height: 2rem;
+      font-weight: bolder;
+      opacity: 0.6;
+    }
+    .saveBtn:hover {
+      background-color: $lighter-grey;
+      opacity: 1;
+    }
+    .saveBtn:active {
+      background-color: $light-grey;
+    }
+  }
+
+  .hidden {
+    display: none;
   }
 }
 
 .blurred {
   min-height: 48px;
   max-height: 48px;
-}
-
-.pin {
-  background: none;
-  color: none;
-  border: none;
-  border-radius: 50%;
-  position: absolute;
-  right: 12px;
-  top: 6px;
-  width: 2.2rem;
-  height: 2.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.218s ease-in;
-
-  svg {
-    flex: 0 0 auto;
-    border-radius: 50%;
-    width: 100%;
-    height: auto;
-    opacity: 0.6;
-    transition: opacity 0.218s ease-in;
-  }
-}
-
-.pin:hover {
-  background-color: rgba(60, 64, 67, 0.08);
-  opacity: 1;
-}
-
-.pin:active {
-  background-color: rgba(60, 64, 67, 0.12);
-}
-
-.hidden {
-  display: none;
 }

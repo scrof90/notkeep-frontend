@@ -25,7 +25,7 @@ const NoteCreationForm = ({
         onSubmit={onSubmit}
       >
         <button
-          className={isBlurred ? classes.hidden : classes.pin}
+          className={`${classes.pinBtn} ${isBlurred && classes.hidden}`}
           value={pinnedValue}
           onChange={onPinnedChange}
         >
@@ -44,9 +44,11 @@ const NoteCreationForm = ({
           onChange={onContentChange}
           placeholder="Take a note..."
         />
-        <button className={isBlurred && classes.hidden} type="submit">
-          save
-        </button>
+        <div className={`${classes.bottomBar} ${isBlurred && classes.hidden}`}>
+          <button className={classes.saveBtn} type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </OutsideClickHandler>
   );
