@@ -15,7 +15,11 @@ const NoteCreationForm = ({
 }) => {
   const [isBlurred, setIsBlurred] = useState(true);
   const handleFocus = () => setIsBlurred(false);
-  const handleBlur = () => setIsBlurred(true);
+  const handleBlur = (e) => {
+    if (isBlurred) return;
+    onSubmit(e);
+    setIsBlurred(true);
+  };
 
   return (
     <OutsideClickHandler onOutsideClick={handleBlur}>
