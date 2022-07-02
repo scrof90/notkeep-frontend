@@ -12,7 +12,7 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
     <form
       onFocus={handleOnFocusChange}
       onBlur={handleOnFocusChange}
-      className={`${classes.wrapper} ${isBlurred && classes.blurred}`}
+      className={`${classes.searchBar} ${isBlurred && classes.blurred}`}
       onSubmit={(e) => e.preventDefault()}
       method="get"
       role="search"
