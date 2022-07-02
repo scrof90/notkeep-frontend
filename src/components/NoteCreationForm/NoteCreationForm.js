@@ -17,7 +17,7 @@ const NoteCreationForm = ({
   const handleFocus = () => setIsBlurred(false);
   const handleBlur = (e) => {
     if (isBlurred) return;
-    onSubmit(e);
+    if (contentValue) onSubmit(e);
     setIsBlurred(true);
   };
 
