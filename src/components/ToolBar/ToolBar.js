@@ -4,7 +4,7 @@ import classes from './styles.module.scss';
 
 const ToolBar = ({ refresh, isListView, toggleViewMode }) => {
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.toolBar}>
       <button onClick={refresh}>
         <MdRefresh />
       </button>
