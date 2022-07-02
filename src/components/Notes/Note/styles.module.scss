@@ -1,64 +1,61 @@
-.wrapper {
+@import '../../../assets/mixins';
+
+.note {
   position: relative;
   width: 206px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $light-grey;
   border-radius: 8px;
   padding: 1rem 3rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
   min-height: 100px;
-  letter-spacing: .01428571em;
-  font-family: Roboto,Arial,sans-serif;
+  letter-spacing: 0.01428571em;
+  @include primeFont();
   word-wrap: break-word;
-}
 
-.wrapper button {
-  background: none;
-  color: none;
-  border: none;
-  border-radius: 50%;
-  transition: background-color 0.218s ease-in;
-  position: absolute;
-  right: 12px;
-  top: 6px;
-  border-radius: 50%;
-  width: 2.2rem;
-  height: 2.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  button {
+    background: none;
+    color: none;
+    border: none;
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.218s ease-in;
 
-.wrapper button:hover {
-  background-color: rgba(60,64,67,.08);
-}
+    svg {
+      flex: 0 0 auto;
+      border-radius: 50%;
+      width: 100%;
+      height: auto;
+      opacity: 0.6;
+      transition: opacity 0.218s ease-in;
+    }
+    svg:hover {
+      opacity: 1;
+    }
+  }
+  button:hover {
+    background-color: rgba(60, 64, 67, 0.08);
+  }
+  button:active {
+    background-color: rgba(60, 64, 67, 0.12);
+  }
 
-.wrapper button:active {
-  background-color: rgba(60,64,67,.12);
-}
+  h3 {
+    font-size: $font-size * 1.2;
+    font-weight: bolder;
+    line-height: 1.5rem;
+  }
 
-.wrapper svg {
-  flex: 0 0 auto;
-  border-radius: 50%;
-  width: 100%;
-  height: auto;
-  opacity: 0.6;
-  transition: opacity 0.218s ease-in;
-}
-
-.wrapper svg:hover {
-  opacity: 1;
-}
-
-.wrapper h3 {
-  font-size: 1rem;
-  font-weight: bolder;
-  line-height: 1.5rem;
-}
-
-.wrapper p {
-  font-size: .875rem;
-  font-weight: 400;
-  line-height: 1.25rem;
+  p {
+    font-size: $font-size;
+    line-height: 1.25rem;
+  }
 }

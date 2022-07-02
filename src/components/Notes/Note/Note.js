@@ -4,7 +4,7 @@ import classes from './styles.module.scss';
 
 const Note = ({ note, togglePinned }) => {
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.note}>
       <button onClick={() => togglePinned(note.id)}>
         {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
