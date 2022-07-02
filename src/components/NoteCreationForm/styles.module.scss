@@ -12,7 +12,7 @@
   min-height: 134px;
   min-width: 560px;
   max-width: 560px;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   border-style: solid;
   border-width: 1px;
   border-radius: 8px;
@@ -26,18 +26,35 @@
     background: transparent;
     border: none;
     outline: none;
-    font-weight: bold;
-    font-size: $font-size + 3;
     @include primeFont();
   }
   input::placeholder {
-    opacity: 0.8;
+    opacity: 0.6;
+    font-weight: bolder;
   }
 
-  .pinBtn {
+  .titleInput {
+    font-size: $font-size * 1.2;
+    font-weight: bolder;
+  }
+  .titleInput::placeholder {
+    font-size: $font-size * 1.2;
+  }
+
+  .contentInput {
+    font-size: $font-size;
+  }
+  .contentInput::placeholder {
+    font-size: $font-size * 1.1;
+  }
+
+  button {
     background: none;
     color: none;
     border: none;
+  }
+
+  .pinBtn {
     border-radius: 50%;
     position: absolute;
     right: 12px;
@@ -72,9 +89,6 @@
     align-items: center;
 
     .saveBtn {
-      background: none;
-      color: none;
-      border: none;
       border-radius: 4px;
       width: 4rem;
       height: 2rem;

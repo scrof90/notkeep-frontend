@@ -76,7 +76,10 @@ const App = () => {
 
   const handleNoteTitleChange = (e) => setNewNoteTitle(e.target.value);
   const handleNoteContentChange = (e) => setNewNoteContent(e.target.value);
-  const handleNotePinnedChange = () => setNewNotePinned(!newNotePinned);
+  const handleNotePinClick = (e) => {
+    e.preventDefault();
+    setNewNotePinned(!newNotePinned);
+  };
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
 
@@ -109,10 +112,10 @@ const App = () => {
             onSubmit={addNote}
             titleValue={newNoteTitle}
             contentValue={newNoteContent}
-            pinnedValue={newNotePinned}
+            isPinned={newNotePinned}
             onTitleChange={handleNoteTitleChange}
             onContentChange={handleNoteContentChange}
-            onPinnedChange={handleNotePinnedChange}
+            onPinClick={handleNotePinClick}
           />
         </div>
         <Notification message={errorMessage} />

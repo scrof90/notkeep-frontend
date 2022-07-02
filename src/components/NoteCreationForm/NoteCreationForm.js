@@ -8,10 +8,10 @@ const NoteCreationForm = ({
   onSubmit,
   titleValue,
   contentValue,
-  pinnedValue,
+  isPinned,
   onTitleChange,
   onContentChange,
-  onPinnedChange
+  onPinClick
 }) => {
   const [isBlurred, setIsBlurred] = useState(true);
   const handleFocus = () => setIsBlurred(false);
@@ -24,21 +24,18 @@ const NoteCreationForm = ({
         className={`${classes.noteCreationForm} ${isBlurred && classes.blurred}`}
         onSubmit={onSubmit}
       >
-        <button
-          className={`${classes.pinBtn} ${isBlurred && classes.hidden}`}
-          value={pinnedValue}
-          onChange={onPinnedChange}
-        >
-          {pinnedValue ? <MdPushPin /> : <MdOutlinePushPin />}
+        <button className={`${classes.pinBtn} ${isBlurred && classes.hidden}`} onClick={onPinClick}>
+          {isPinned ? <MdPushPin /> : <MdOutlinePushPin />}
         </button>
         <input
-          className={isBlurred && classes.hidden}
+          className={`${classes.titleInput} ${isBlurred && classes.hidden}`}
           type="textarea"
           value={titleValue}
           onChange={onTitleChange}
           placeholder="Title"
         />
         <input
+          className={classes.contentInput}
           type="textarea"
           value={contentValue}
           onChange={onContentChange}
@@ -58,10 +55,10 @@ NoteCreationForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   titleValue: PropTypes.string.isRequired,
   contentValue: PropTypes.string.isRequired,
-  pinnedValue: PropTypes.bool.isRequired,
+  isPinned: PropTypes.bool.isRequired,
   onTitleChange: PropTypes.func.isRequired,
   onContentChange: PropTypes.func.isRequired,
-  onPinnedChange: PropTypes.func.isRequired
+  onPinClick: PropTypes.func.isRequired
 };
 
 export default NoteCreationForm;
