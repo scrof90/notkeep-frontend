@@ -8,11 +8,12 @@
   gap: 0.5rem;
 
   h2 {
-    color: #5f6368;
+    color: $secondary-color;
     letter-spacing: 0.07272727em;
-    font-size: 0.6875rem;
-    font-weight: 500;
+    font-size: $font-size * 0.8;
+    font-weight: bold;
     line-height: 1rem;
+    @include primeFont();
     text-transform: uppercase;
     margin-left: 1rem;
   }
