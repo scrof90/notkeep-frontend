@@ -9,10 +9,12 @@
   align-items: stretch;
   justify-content: space-around;
   gap: 0.5rem;
-  min-height: 134px;
-  min-width: 560px;
-  max-width: 560px;
+  min-height: 46px;
+  min-width: 598px;
+  max-width: 598px;
   padding: 0.5rem 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   border-style: solid;
   border-width: 1px;
   border-radius: 8px;
@@ -110,6 +112,6 @@
 }
 
 .blurred {
-  min-height: 48px;
-  max-height: 48px;
+  padding: 0 1rem;
+  max-height: 46px;
 }

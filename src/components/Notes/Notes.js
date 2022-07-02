@@ -13,7 +13,7 @@ const Notes = ({ notes, togglePinned, isListView }) => {
           <h2>Pinned</h2>
           <div className={isListView ? classes.listLayout : classes.gridLayout}>
             {notesPinned.map((note) => (
-              <Note key={note.id} note={note} togglePinned={togglePinned} />
+              <Note key={note.id} note={note} togglePinned={togglePinned} isListView={isListView} />
             ))}
           </div>
         </>
@@ -23,7 +23,7 @@ const Notes = ({ notes, togglePinned, isListView }) => {
           <h2>Pinned</h2>
           <div className={isListView ? classes.listLayout : classes.gridLayout}>
             {notesUnpinned.map((note) => (
-              <Note key={note.id} note={note} togglePinned={togglePinned} />
+              <Note key={note.id} note={note} togglePinned={togglePinned} isListView={isListView} />
             ))}
           </div>
         </>

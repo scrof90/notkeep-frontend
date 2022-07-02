@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
 import classes from './styles.module.scss';
 
-const Note = ({ note, togglePinned }) => {
+const Note = ({ note, togglePinned, isListView }) => {
   return (
-    <div className={classes.note}>
+    <div className={`${classes.note} ${isListView && classes.listView}`}>
       <button onClick={() => togglePinned(note.id)}>
         {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
@@ -22,7 +22,8 @@ Note.propTypes = {
     date: PropTypes.string,
     pinned: PropTypes.bool
   }).isRequired,
-  togglePinned: PropTypes.func.isRequired
+  togglePinned: PropTypes.func.isRequired,
+  isListView: PropTypes.bool.isRequired
 };
 
 export default Note;
