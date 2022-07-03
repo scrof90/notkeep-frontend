@@ -2,19 +2,20 @@
 
 .toolBar {
   min-height: 48px;
-  min-width: 144px;
+  min-width: 200px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
 
-  button {
+  button,
+  a {
     background: none;
     color: none;
     border: none;
     border-radius: 50%;
     display: flex;
     flex: 0 0 3rem;
-    min-height: 3rem;
+    min-height: 48px;
     align-items: center;
     justify-content: center;
   }
