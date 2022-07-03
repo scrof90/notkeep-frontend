@@ -21,7 +21,6 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -30,8 +29,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -47,14 +44,14 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 Starts json-server at port 3003 using db.json as DB and routes.json for routes.
 
-### `lint`
+### `npm run lint`
 
 Runs eslint on all applicable files.
 
-### `lint:fix`
+### `npm run lint:fix`
 
 Runs eslint on all applicable files and attempts to fix the issues automatically.
 
-### `format`
+### `npm run format`
 
 Same as the previous one, but uses Prettier instead.
