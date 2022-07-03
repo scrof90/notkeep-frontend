@@ -20,7 +20,7 @@ const Notes = ({ notes, togglePinned, isListView }) => {
       )}
       {notesUnpinned.length > 0 && (
         <>
-          <h2>Pinned</h2>
+          <h2>Others</h2>
           <div className={isListView ? classes.listLayout : classes.gridLayout}>
             {notesUnpinned.map((note) => (
               <Note key={note.id} note={note} togglePinned={togglePinned} isListView={isListView} />
