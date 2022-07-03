@@ -1,6 +1,8 @@
 import axios from 'axios';
-// const baseUrl = '/api/notes';
-const baseUrl = 'http://localhost:3003/api/notes';
+// URL for production build
+const baseUrl = '/api/notes';
+// URL for development via json-server
+// const baseUrl = 'http://localhost:3003/api/notes';
 
 const getAll = () => {
   const request = axios.get(baseUrl);
