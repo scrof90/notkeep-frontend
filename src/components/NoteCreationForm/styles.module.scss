@@ -2,19 +2,15 @@
 
 .noteCreationForm {
   position: relative;
-  flex: 1 1 auto;
-  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: space-around;
   gap: 0.5rem;
   min-height: 46px;
-  min-width: 598px;
-  max-width: 598px;
+  min-width: 564px;
+  max-width: 564px;
   padding: 0.5rem 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
   border-style: solid;
   border-width: 1px;
   border-radius: 8px;

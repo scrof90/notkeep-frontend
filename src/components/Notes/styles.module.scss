@@ -3,8 +3,6 @@
 .notes {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
   gap: 0.5rem;
 
   h2 {
@@ -19,15 +17,9 @@
   }
 }
 
-.centered {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .gridLayout {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   gap: 1rem;
   margin-bottom: 4rem;
 }
@@ -35,8 +27,8 @@
 .listLayout {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 1rem;
   margin-bottom: 4rem;
 }

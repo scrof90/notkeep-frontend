@@ -119,7 +119,7 @@ const App = () => {
         </div>
         <div>Account</div>
       </header>
-      <div className={classes.notesContainer}>
+      <div className={classes.contentContainer}>
         <div className={classes.noteCreationFormContainer}>
           <OutsideClickHandler onOutsideClick={handleNoteCreationFormBlur}>
             <NoteCreationForm
@@ -136,9 +136,11 @@ const App = () => {
           </OutsideClickHandler>
         </div>
         <Notification message={errorMessage} />
-        {notesFiltered.length > 0 && (
-          <Notes notes={notesFiltered} togglePinned={togglePinned} isListView={isListView} />
-        )}
+        <div className={`${classes.notesContainer} ${isListView && classes.listView}`}>
+          {notesFiltered.length > 0 && (
+            <Notes notes={notesFiltered} togglePinned={togglePinned} isListView={isListView} />
+          )}
+        </div>
       </div>
     </div>
   );

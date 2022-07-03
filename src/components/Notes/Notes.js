@@ -7,7 +7,7 @@ const Notes = ({ notes, togglePinned, isListView }) => {
   const notesUnpinned = notes.filter((note) => !note.pinned);
 
   return (
-    <div className={`${classes.notes} ${isListView && classes.centered}`}>
+    <div className={classes.notes}>
       {notesPinned.length > 0 && (
         <>
           <h2>Pinned</h2>
