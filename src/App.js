@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import OutsideClickHandler from 'react-outside-click-handler';
 import Logo from './components/Logo/Logo';
 import SearchBar from './components/SearchBar/SearchBar';
 import ToolBar from './components/ToolBar/ToolBar';
@@ -16,6 +17,8 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [searchFilter, setSearchFilter] = useState('');
   const [isListView, setListView] = useState(false);
+  const [isNoteCreationFormBlurred, setIsNoteCreationFormBlurred] = useState(true);
+
   const notesFiltered = notes.filter((note) =>
     note.content.toLowerCase().includes(searchFilter.trim().toLowerCase())
   );
@@ -40,6 +43,26 @@ const App = () => {
     fetchAllNotes();
   }, []);
 
+  const toggleViewMode = () => setListView(!isListView);
+
+  // Note functions
+  const togglePinned = async (id) => {
+    const note = notes.find((n) => n.id === id);
+    const changedNote = { ...note, pinned: !note.pinned };
+
+    try {
+      const returnedNote = await noteService.update(id, changedNote);
+      setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
+    } catch {
+      handleError(`Note '${note.content}' was already removed from server`);
+    }
+  };
+
+  // SearchBar functions
+  const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
+  const handleSearchFilterClear = () => setSearchFilter('');
+
+  // NoteCreationForm functions
   const addNote = async (e) => {
     e.preventDefault();
     const noteObject = {
@@ -59,29 +82,19 @@ const App = () => {
       handleError('Note creation failed, please try again');
     }
   };
-
-  const toggleViewMode = () => setListView(!isListView);
-
-  const togglePinned = async (id) => {
-    const note = notes.find((n) => n.id === id);
-    const changedNote = { ...note, pinned: !note.pinned };
-
-    try {
-      const returnedNote = await noteService.update(id, changedNote);
-      setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
-    } catch {
-      handleError(`Note '${note.content}' was already removed from server`);
-    }
-  };
-
   const handleNoteTitleChange = (e) => setNewNoteTitle(e.target.value);
   const handleNoteContentChange = (e) => setNewNoteContent(e.target.value);
   const handleNotePinClick = (e) => {
     e.preventDefault();
     setNewNotePinned(!newNotePinned);
   };
-  const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
-  const handleSearchFilterClear = () => setSearchFilter('');
+  const handleNoteCreationFormFocus = () => setIsNoteCreationFormBlurred(false);
+  const handleNoteCreationFormBlur = (e) => {
+    if (isNoteCreationFormBlurred) return;
+    if (newNoteTitle || newNoteContent) addNote(e);
+    setNewNotePinned(false);
+    setIsNoteCreationFormBlurred(true);
+  };
 
   return (
     <div className={classes.app}>
@@ -108,15 +121,19 @@ const App = () => {
       </header>
       <div className={classes.notesContainer}>
         <div className={classes.noteCreationFormContainer}>
-          <NoteCreationForm
-            onSubmit={addNote}
-            titleValue={newNoteTitle}
-            contentValue={newNoteContent}
-            isPinned={newNotePinned}
-            onTitleChange={handleNoteTitleChange}
-            onContentChange={handleNoteContentChange}
-            onPinClick={handleNotePinClick}
-          />
+          <OutsideClickHandler onOutsideClick={handleNoteCreationFormBlur}>
+            <NoteCreationForm
+              onFocus={handleNoteCreationFormFocus}
+              onSubmit={addNote}
+              onTitleChange={handleNoteTitleChange}
+              onContentChange={handleNoteContentChange}
+              onPinClick={handleNotePinClick}
+              titleValue={newNoteTitle}
+              contentValue={newNoteContent}
+              isPinned={newNotePinned}
+              isBlurred={isNoteCreationFormBlurred}
+            />
+          </OutsideClickHandler>
         </div>
         <Notification message={errorMessage} />
         {notesFiltered.length > 0 && (
