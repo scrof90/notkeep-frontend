@@ -1,8 +1,8 @@
 import axios from 'axios';
 // URL for production build
-const baseUrl = '/api/notes';
+// const baseUrl = '/api/notes';
 // URL for development via json-server
-// const baseUrl = 'http://localhost:3003/api/notes';
+const baseUrl = 'http://localhost:3003/api/notes';
 
 const getAll = () => {
   const request = axios.get(baseUrl);
@@ -19,8 +19,14 @@ const update = (id, newObject) => {
   return request.then((response) => response.data);
 };
 
+const remove = (id) => {
+  const request = axios.delete(`${baseUrl}/${id}`);
+  return request.then((response) => response);
+};
+
 export default {
   getAll,
   create,
-  update
+  update,
+  remove
 };

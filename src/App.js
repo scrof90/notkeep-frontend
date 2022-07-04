@@ -45,25 +45,12 @@ const App = () => {
 
   const toggleViewMode = () => setListView(!isListView);
 
-  // Note functions
-  const togglePinned = async (id) => {
-    const note = notes.find((n) => n.id === id);
-    const changedNote = { ...note, pinned: !note.pinned };
-
-    try {
-      const returnedNote = await noteService.update(id, changedNote);
-      setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
-    } catch {
-      handleError(`Note '${note.content}' was already removed from server`);
-    }
-  };
-
   // SearchBar functions
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
 
   // NoteCreationForm functions
-  const addNote = async (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
     const noteObject = {
       title: newNoteTitle,
@@ -91,9 +78,29 @@ const App = () => {
   const handleNoteCreationFormFocus = () => setIsNoteCreationFormBlurred(false);
   const handleNoteCreationFormBlur = (e) => {
     if (isNoteCreationFormBlurred) return;
-    if (newNoteTitle || newNoteContent) addNote(e);
+    if (newNoteTitle || newNoteContent) handleCreate(e);
     setNewNotePinned(false);
     setIsNoteCreationFormBlurred(true);
+  };
+
+  // Note functions
+  const togglePinned = async (id) => {
+    const note = notes.find((n) => n.id === id);
+    const changedNote = { ...note, pinned: !note.pinned };
+
+    try {
+      const returnedNote = await noteService.update(id, changedNote);
+      setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
+    } catch {
+      handleError(`Note '${note.content}' was already removed from server`);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    const isConfirmed = window.confirm('Are you sure you want to delete this note?');
+    if (isConfirmed) {
+      noteService.remove(id).then(() => setNotes(notes.filter((n) => n.id !== id)));
+    }
   };
 
   return (
@@ -124,7 +131,7 @@ const App = () => {
           <OutsideClickHandler onOutsideClick={handleNoteCreationFormBlur}>
             <NoteCreationForm
               onFocus={handleNoteCreationFormFocus}
-              onSubmit={addNote}
+              onSubmit={handleCreate}
               onTitleChange={handleNoteTitleChange}
               onContentChange={handleNoteContentChange}
               onPinClick={handleNotePinClick}
@@ -138,7 +145,12 @@ const App = () => {
         <Notification message={errorMessage} />
         <div className={`${classes.notesContainer} ${isListView && classes.listView}`}>
           {notesFiltered.length > 0 && (
-            <Notes notes={notesFiltered} togglePinned={togglePinned} isListView={isListView} />
+            <Notes
+              notes={notesFiltered}
+              onPin={togglePinned}
+              onDelete={handleDelete}
+              isListView={isListView}
+            />
           )}
         </div>
       </div>
