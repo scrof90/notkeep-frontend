@@ -6,15 +6,17 @@ const Notes = ({ notes, onPin, onDelete, isListView }) => {
   const notesPinned = notes.filter((note) => note.pinned);
   const notesUnpinned = notes.filter((note) => !note.pinned);
 
+  const mapper = (note) => (
+    <Note key={note.id} note={note} onPin={onPin} onDelete={onDelete} isListView={isListView} />
+  );
+
   return (
     <div className={classes.notes}>
       {notesPinned.length > 0 && (
         <>
           <h2>Pinned</h2>
           <div className={isListView ? classes.listLayout : classes.gridLayout}>
-            {notesPinned.map((note) => (
-              <Note key={note.id} note={note} onPin={onPin} isListView={isListView} />
-            ))}
+            {notesPinned.map(mapper)}
           </div>
         </>
       )}
@@ -22,15 +24,7 @@ const Notes = ({ notes, onPin, onDelete, isListView }) => {
         <>
           <h2>Others</h2>
           <div className={isListView ? classes.listLayout : classes.gridLayout}>
-            {notesUnpinned.map((note) => (
-              <Note
-                key={note.id}
-                note={note}
-                onPin={onPin}
-                onDelete={onDelete}
-                isListView={isListView}
-              />
-            ))}
+            {notesUnpinned.map(mapper)}
           </div>
         </>
       )}
