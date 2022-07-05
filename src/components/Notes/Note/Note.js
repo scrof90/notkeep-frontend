@@ -19,13 +19,14 @@ const Note = ({ note, onPin, onDelete, isListView }) => {
       <button
         className={`${classes.pinBtn} ${!isMouseOver && classes.hidden}`}
         onClick={() => onPin(note.id)}
+        type="button"
       >
         {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
       {note.title.length > 0 && <h3>{note.title}</h3>}
       <p>{note.content}</p>
       <div className={`${classes.bottomBar} ${!isMouseOver && classes.hidden}`}>
-        <button onClick={() => onDelete(note.id)}>
+        <button onClick={() => onDelete(note.id)} type="button">
           <MdDeleteForever />
         </button>
       </div>
