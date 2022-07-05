@@ -6,13 +6,13 @@ import classes from './styles.module.scss';
 const ToolBar = ({ refresh, isListView, toggleViewMode }) => {
   return (
     <div className={classes.toolBar}>
-      <button onClick={refresh}>
+      <button onClick={refresh} type="button">
         <MdRefresh />
       </button>
-      <button onClick={toggleViewMode}>
+      <button onClick={toggleViewMode} type="button">
         {isListView ? <MdGridView /> : <MdOutlineViewAgenda />}
       </button>
-      <button>
+      <button type="button">
         <MdOutlineDarkMode />
       </button>
       <a href="https://github.com/scrof90/notkeep-frontend">
