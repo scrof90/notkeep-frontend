@@ -19,17 +19,33 @@ const NoteCreationForm = ({
       className={`${classes.noteCreationForm} ${isBlurred && classes.blurred}`}
       onSubmit={onSubmit}
     >
-      <button className={`${classes.pinBtn} ${isBlurred && classes.hidden}`} onClick={onPinClick}>
+      <label className={classes.hidden} htmlFor="newNotePin">
+        Pin:
+      </label>
+      <button
+        id="newNotePin"
+        className={`${classes.pinBtn} ${isBlurred && classes.hidden}`}
+        onClick={onPinClick}
+        type="button"
+      >
         {isPinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
+      <label className={classes.hidden} htmlFor="newNoteTitle">
+        Title:
+      </label>
       <input
+        id="newNoteTitle"
         className={`${classes.titleInput} ${isBlurred && classes.hidden}`}
         type="textarea"
         value={titleValue}
         onChange={onTitleChange}
         placeholder="Title"
       />
+      <label className={classes.hidden} htmlFor="newNoteContent">
+        Note content:
+      </label>
       <input
+        id="newNoteContent"
         className={classes.contentInput}
         type="textarea"
         value={contentValue}
