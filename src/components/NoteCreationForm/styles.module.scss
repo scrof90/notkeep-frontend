@@ -11,12 +11,10 @@
   min-width: 564px;
   max-width: 564px;
   padding: 0.5rem 1rem;
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid $border-color;
   border-radius: 8px;
-  background-color: $white;
-  border-color: $light-grey;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  background-color: $background-color;
+  box-shadow: 0 3px 5px $shadow-color;
 
   input {
     box-sizing: border-box;
@@ -32,11 +30,11 @@
   }
 
   .titleInput {
-    font-size: $font-size * 1.2;
+    font-size: $heading-font-size;
     font-weight: bolder;
   }
   .titleInput::placeholder {
-    font-size: $font-size * 1.2;
+    font-size: $heading-font-size;
   }
 
   .contentInput {
@@ -74,11 +72,10 @@
     }
   }
   .pinBtn:hover {
-    background-color: rgba(60, 64, 67, 0.08);
-    opacity: 1;
+    background-color: $hover-color;
   }
   .pinBtn:active {
-    background-color: rgba(60, 64, 67, 0.12);
+    background-color: $active-color;
   }
 
   .bottomBar {
@@ -94,11 +91,10 @@
       opacity: 0.6;
     }
     .saveBtn:hover {
-      background-color: $lighter-grey;
-      opacity: 1;
+      background-color: $hover-color;
     }
     .saveBtn:active {
-      background-color: $light-grey;
+      background-color: $active-color;
     }
   }
 

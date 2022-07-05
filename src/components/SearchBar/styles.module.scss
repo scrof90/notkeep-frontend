@@ -11,13 +11,13 @@
   max-width: 690px;
   padding: 0 0.6rem;
   border-radius: 8px;
-  box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3), 0 1px 3px 1px rgba(65, 69, 73, 0.15);
+  box-shadow: 0 1px 1px 0 $shadow-color, 0 1px 3px 1px $shadow-color;
   transition: box-shadow 0.1s ease-in, 0.1s ease-out;
 
   input {
     background: transparent;
     border: none;
-    font-size: $font-size + 3;
+    font-size: $heading-font-size;
     @include primeFont();
     height: 46px;
     outline: none;
@@ -40,10 +40,10 @@
     justify-content: center;
   }
   button:hover {
-    background-color: rgba(60, 64, 67, 0.08);
+    background-color: $hover-color;
   }
   button:active {
-    background-color: rgba(60, 64, 67, 0.12);
+    background-color: $active-color;
   }
 
   svg {
@@ -55,7 +55,7 @@
 }
 
 .blurred {
-  background: $lighter-grey;
+  background: $secondary-background-color;
   border: 1px solid transparent;
   box-shadow: none;
 }

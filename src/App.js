@@ -106,7 +106,6 @@ const App = () => {
   return (
     <div className={classes.app}>
       <header>
-        <div>Main menu</div>
         <div className={classes.logoContainer}>
           <Logo />
         </div>
