@@ -1,16 +1,30 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin, MdDeleteForever } from 'react-icons/md';
 import classes from './styles.module.scss';
 
 const Note = ({ note, onPin, onDelete, isListView }) => {
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const onMouseOver = () => setIsMouseOver(true);
+  const onMouseOut = () => setIsMouseOver(false);
+
   return (
-    <div className={`${classes.note} ${isListView && classes.listView}`}>
-      <button className={classes.pinBtn} onClick={() => onPin(note.id)}>
+    <div
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
+      className={`${classes.note} ${isListView && classes.listView} ${
+        isMouseOver && classes.mouseOver
+      }`}
+    >
+      <button
+        className={`${classes.pinBtn} ${!isMouseOver && classes.hidden}`}
+        onClick={() => onPin(note.id)}
+      >
         {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
       {note.title.length > 0 && <h3>{note.title}</h3>}
       <p>{note.content}</p>
-      <div className={classes.bottomBar}>
+      <div className={`${classes.bottomBar} ${!isMouseOver && classes.hidden}`}>
         <button onClick={() => onDelete(note.id)}>
           <MdDeleteForever />
         </button>
