@@ -20,13 +20,17 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
       <div className={classes.iconContainer}>
         <MdSearch />
       </div>
+      <label className={classes.hidden} htmlFor="search">
+        Search:
+      </label>
       <input
+        id="search"
         type="text"
         placeholder="Search"
         value={searchFilter}
         onChange={onSearchFilterChange}
       />
-      <button onClick={onSearchFilterClear}>
+      <button onClick={onSearchFilterClear} type="reset">
         <MdClose />
       </button>
     </form>
