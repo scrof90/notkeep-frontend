@@ -84,7 +84,8 @@ const App = () => {
   };
 
   // Note functions
-  const togglePinned = async (id) => {
+  const togglePinned = async (e, id) => {
+    e.stopPropagation();
     const note = notes.find((n) => n.id === id);
     const changedNote = { ...note, pinned: !note.pinned };
 
@@ -96,7 +97,8 @@ const App = () => {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (e, id) => {
+    e.stopPropagation();
     const isConfirmed = window.confirm('Are you sure you want to delete this note?');
     if (isConfirmed) {
       noteService.remove(id).then(() => setNotes(notes.filter((n) => n.id !== id)));

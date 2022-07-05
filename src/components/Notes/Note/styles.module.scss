@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.3rem;
   min-height: 100px;
   @include primeFont();
   word-wrap: break-word;
@@ -52,15 +51,18 @@
     top: 6px;
   }
 
-  h3 {
-    font-size: $heading-font-size;
-    font-weight: bolder;
-    line-height: 1.5rem;
-  }
+  section {
+    flex: 1 1 auto;
 
-  p {
-    font-size: $font-size;
-    line-height: 1.25rem;
+    h3 {
+      font-size: $heading-font-size;
+      font-weight: bolder;
+      line-height: 1.5rem;
+    }
+    p {
+      font-size: $font-size;
+      line-height: 1.25rem;
+    }
   }
 
   .bottomBar {

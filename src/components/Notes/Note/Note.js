@@ -7,9 +7,13 @@ const Note = ({ note, onPin, onDelete, isListView }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const onMouseOver = () => setIsMouseOver(true);
   const onMouseOut = () => setIsMouseOver(false);
+  const onClick = () => {
+    console.log('success!');
+  };
 
   return (
     <div
+      onClick={onClick}
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
       className={`${classes.note} ${isListView && classes.listView} ${
@@ -18,15 +22,17 @@ const Note = ({ note, onPin, onDelete, isListView }) => {
     >
       <button
         className={`${classes.pinBtn} ${!isMouseOver && classes.hidden}`}
-        onClick={() => onPin(note.id)}
+        onClick={(e) => onPin(e, note.id)}
         type="button"
       >
         {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
-      {note.title.length > 0 && <h3>{note.title}</h3>}
-      <p>{note.content}</p>
+      <section>
+        {note.title.length > 0 && <h3>{note.title}</h3>}
+        <p>{note.content}</p>
+      </section>
       <div className={`${classes.bottomBar} ${!isMouseOver && classes.hidden}`}>
-        <button onClick={() => onDelete(note.id)} type="button">
+        <button onClick={(e) => onDelete(e, note.id)} type="button">
           <MdDeleteForever />
         </button>
       </div>
