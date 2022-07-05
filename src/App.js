@@ -123,7 +123,6 @@ const App = () => {
             toggleViewMode={toggleViewMode}
           />
         </div>
-        <div>Account</div>
       </header>
       <div className={classes.contentContainer}>
         <div className={classes.noteCreationFormContainer}>

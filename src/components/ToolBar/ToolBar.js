@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { MdRefresh, MdOutlineViewAgenda, MdGridView, MdOutlineDarkMode } from 'react-icons/md';
+import { MdRefresh, MdOutlineViewAgenda, MdGridView } from 'react-icons/md';
 import { GoMarkGithub } from 'react-icons/go';
 import classes from './styles.module.scss';
 
@@ -11,9 +11,6 @@ const ToolBar = ({ refresh, isListView, toggleViewMode }) => {
       </button>
       <button onClick={toggleViewMode} type="button">
         {isListView ? <MdGridView /> : <MdOutlineViewAgenda />}
-      </button>
-      <button type="button">
-        <MdOutlineDarkMode />
       </button>
       <a href="https://github.com/scrof90/notkeep-frontend">
         <GoMarkGithub />
