@@ -7,8 +7,6 @@ import classes from './styles.module.scss';
 const Note = ({ note, onPin, onDelete, isListView }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
-  const onMouseOver = () => setIsMouseOver(true);
-  const onMouseOut = () => setIsMouseOver(false);
   const onBlur = () => {
     setIsFocused(false);
   };
@@ -17,16 +15,23 @@ const Note = ({ note, onPin, onDelete, isListView }) => {
     e.preventDefault();
     setIsFocused(true);
   };
+  const onMouseOver = () => setIsMouseOver(true);
+  const onMouseOut = () => setIsMouseOver(false);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onBlur();
+  };
 
   return (
     <OutsideClickHandler onOutsideClick={onBlur}>
       <form
-        onClick={onClick}
-        onMouseOver={onMouseOver}
-        onMouseOut={onMouseOut}
         className={`${classes.note} ${isListView && classes.listView} ${
           isMouseOver && classes.mouseOver
         } ${isFocused && classes.focused}`}
+        onClick={onClick}
+        onMouseOver={onMouseOver}
+        onMouseOut={onMouseOut}
+        onSubmit={onSubmit}
       >
         <label className={classes.hidden} htmlFor="pin">
           Pin:
