@@ -53,7 +53,10 @@ const NoteCreationForm = ({
         placeholder="Take a note..."
       />
       <div className={`${classes.bottomBar} ${isBlurred && classes.hidden}`}>
-        <button className={classes.saveBtn} type="submit">
+        <label className={classes.hidden} htmlFor="submit">
+          Submit:
+        </label>
+        <button id="submit" className={classes.saveBtn} type="submit">
           Save
         </button>
       </div>
