@@ -10,14 +10,23 @@ import noteService from './services/notes';
 import classes from './styles.module.scss';
 
 const App = () => {
+  // DB state
   const [notes, setNotes] = useState([]);
+
+  // Search function state
+  const [searchFilter, setSearchFilter] = useState('');
+
+  // NoteCreationForm state
   const [newNoteTitle, setNewNoteTitle] = useState('');
   const [newNoteContent, setNewNoteContent] = useState('');
   const [newNotePinned, setNewNotePinned] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [searchFilter, setSearchFilter] = useState('');
-  const [isListView, setListView] = useState(false);
   const [isNoteCreationFormBlurred, setIsNoteCreationFormBlurred] = useState(true);
+
+  // Notification state
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  // misc state
+  const [isListView, setListView] = useState(false);
 
   const notesFiltered = notes.filter((note) =>
     note.content.toLowerCase().includes(searchFilter.trim().toLowerCase())
@@ -84,7 +93,8 @@ const App = () => {
   };
 
   // Note functions
-  const togglePinned = async (id) => {
+  const togglePinned = async (e, id) => {
+    e.stopPropagation();
     const note = notes.find((n) => n.id === id);
     const changedNote = { ...note, pinned: !note.pinned };
 
@@ -96,7 +106,8 @@ const App = () => {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (e, id) => {
+    e.stopPropagation();
     const isConfirmed = window.confirm('Are you sure you want to delete this note?');
     if (isConfirmed) {
       noteService.remove(id).then(() => setNotes(notes.filter((n) => n.id !== id)));

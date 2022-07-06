@@ -1,36 +1,80 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import OutsideClickHandler from 'react-outside-click-handler';
 import { MdPushPin, MdOutlinePushPin, MdDeleteForever } from 'react-icons/md';
 import classes from './styles.module.scss';
 
 const Note = ({ note, onPin, onDelete, isListView }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const onBlur = () => {
+    setIsFocused(false);
+  };
+  const onClick = (e) => {
+    if (isFocused) return;
+    e.preventDefault();
+    setIsFocused(true);
+  };
   const onMouseOver = () => setIsMouseOver(true);
   const onMouseOut = () => setIsMouseOver(false);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onBlur();
+  };
 
   return (
-    <div
-      onMouseOver={onMouseOver}
-      onMouseOut={onMouseOut}
-      className={`${classes.note} ${isListView && classes.listView} ${
-        isMouseOver && classes.mouseOver
-      }`}
-    >
-      <button
-        className={`${classes.pinBtn} ${!isMouseOver && classes.hidden}`}
-        onClick={() => onPin(note.id)}
-        type="button"
+    <OutsideClickHandler onOutsideClick={onBlur}>
+      <form
+        className={`${classes.note} ${isListView && classes.listView} ${
+          isMouseOver && classes.mouseOver
+        } ${isFocused && classes.focused}`}
+        onClick={onClick}
+        onMouseOver={onMouseOver}
+        onMouseOut={onMouseOut}
+        onSubmit={onSubmit}
       >
-        {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
-      </button>
-      {note.title.length > 0 && <h3>{note.title}</h3>}
-      <p>{note.content}</p>
-      <div className={`${classes.bottomBar} ${!isMouseOver && classes.hidden}`}>
-        <button onClick={() => onDelete(note.id)} type="button">
-          <MdDeleteForever />
+        <label className={classes.hidden} htmlFor="pin">
+          Pin:
+        </label>
+        <button
+          id="pin"
+          className={`${classes.pinBtn} ${!isMouseOver && !isFocused && classes.transparent}`}
+          onClick={(e) => onPin(e, note.id)}
+          type="button"
+        >
+          {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
         </button>
-      </div>
-    </div>
+        <label className={classes.hidden} htmlFor="pin">
+          Pin:
+        </label>
+        <section>
+          {note.title.length > 0 && <h3>{note.title}</h3>}
+          <p>{note.content}</p>
+        </section>
+        <div
+          className={`${classes.bottomBar} ${!isMouseOver && !isFocused && classes.transparent}`}
+        >
+          <button
+            className={isFocused && classes.hidden}
+            onClick={(e) => onDelete(e, note.id)}
+            type="button"
+          >
+            <MdDeleteForever />
+          </button>
+          <label className={classes.hidden} htmlFor="submit">
+            Submit:
+          </label>
+          <button
+            id="submit"
+            className={isFocused ? classes.saveBtn : classes.hidden}
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+      <div onClick={onBlur} className={isFocused ? classes.bg : classes.hidden}></div>
+    </OutsideClickHandler>
   );
 };
 
