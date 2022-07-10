@@ -30,7 +30,7 @@ const App = () => {
   const [editedNotePinned, setEditedNotePinned] = useState(false);
 
   // Notification state
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [notification, setNotification] = useState(null);
 
   // misc state
   const [isListView, setListView] = useState(false);
@@ -39,10 +39,10 @@ const App = () => {
     note.content.toLowerCase().includes(searchFilter.trim().toLowerCase())
   );
 
-  const handleError = (message) => {
-    setErrorMessage(message);
+  const showNotification = (message) => {
+    setNotification(message);
     setTimeout(() => {
-      setErrorMessage(null);
+      setNotification(null);
     }, 5000);
   };
 
@@ -51,7 +51,7 @@ const App = () => {
       const notes = await noteService.getAll();
       setNotes(notes);
     } catch {
-      handleError('Failed to fetch notes');
+      showNotification('Failed to fetch notes');
     }
   };
 
@@ -82,7 +82,7 @@ const App = () => {
       setNewNoteContent('');
       setNewNotePinned(false);
     } catch {
-      handleError('Note creation failed, please try again');
+      showNotification('Note creation failed, please try again');
     }
   };
 
@@ -124,7 +124,7 @@ const App = () => {
       setEditedNoteTitle('');
       setEditedNoteContent('');
     } catch {
-      handleError('Note update failed, please try again');
+      showNotification('Note update failed, please try again');
     }
   };
 
@@ -146,7 +146,7 @@ const App = () => {
       const returnedNote = await noteService.update(id, changedNote);
       setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
     } catch {
-      handleError(`Note '${note.content}' was already removed from server`);
+      showNotification(`Note '${note.content}' was already removed from server`);
     }
   };
 
@@ -215,7 +215,7 @@ const App = () => {
             />
           )}
         </div>
-        <Notification message={errorMessage} />
+        <Notification message={notification} />
         <div className={`${classes.notesContainer} ${isListView && classes.listView}`}>
           {notesFiltered.length > 0 && (
             <Notes
