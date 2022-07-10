@@ -25,34 +25,35 @@ const Note = ({ note, onPin, onDelete, isListView }) => {
   return (
     <OutsideClickHandler onOutsideClick={onBlur}>
       <form
-        className={`${classes.note} ${isListView && classes.listView} ${
-          isMouseOver && classes.mouseOver
-        } ${isFocused && classes.focused}`}
+        className={`${classes.note} ${isListView ? classes.listView : undefined} ${
+          isMouseOver ? classes.mouseOver : undefined
+        } ${isFocused ? classes.focused : undefined}`}
         onClick={onClick}
         onMouseOver={onMouseOver}
         onMouseOut={onMouseOut}
         onSubmit={onSubmit}
       >
-        <label className={classes.hidden} htmlFor="pin">
+        <label htmlFor="pin" hidden>
           Pin:
         </label>
         <button
           id="pin"
-          className={`${classes.pinBtn} ${!isMouseOver && !isFocused && classes.transparent}`}
+          className={`${classes.pinBtn} ${
+            !isMouseOver && !isFocused ? classes.transparent : undefined
+          }`}
           onClick={(e) => onPin(e, note.id)}
           type="button"
         >
           {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
         </button>
-        <label className={classes.hidden} htmlFor="pin">
-          Pin:
-        </label>
         <section>
           {note.title.length > 0 && <h3>{note.title}</h3>}
           <p>{note.content}</p>
         </section>
         <div
-          className={`${classes.bottomBar} ${!isMouseOver && !isFocused && classes.transparent}`}
+          className={`${classes.bottomBar} ${
+            !isMouseOver && !isFocused ? classes.transparent : undefined
+          }`}
         >
           <button
             className={isFocused && classes.hidden}
@@ -61,14 +62,7 @@ const Note = ({ note, onPin, onDelete, isListView }) => {
           >
             <MdDeleteForever />
           </button>
-          <label className={classes.hidden} htmlFor="submit">
-            Submit:
-          </label>
-          <button
-            id="submit"
-            className={isFocused ? classes.saveBtn : classes.hidden}
-            type="submit"
-          >
+          <button className={isFocused ? classes.saveBtn : classes.hidden} type="submit">
             Save
           </button>
         </div>
