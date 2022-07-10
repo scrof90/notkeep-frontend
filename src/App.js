@@ -78,13 +78,16 @@ const App = () => {
       handleError('Note creation failed, please try again');
     }
   };
-  const handleNoteTitleChange = (e) => setNewNoteTitle(e.target.value);
-  const handleNoteContentChange = (e) => setNewNoteContent(e.target.value);
+
   const handleNotePinClick = (e) => {
     e.preventDefault();
     setNewNotePinned(!newNotePinned);
   };
+
+  const handleNoteTitleChange = (e) => setNewNoteTitle(e.target.value);
+  const handleNoteContentChange = (e) => setNewNoteContent(e.target.value);
   const handleNoteCreationFormFocus = () => setIsNoteCreationFormBlurred(false);
+
   const handleNoteCreationFormBlur = (e) => {
     if (isNoteCreationFormBlurred) return;
     if (newNoteTitle || newNoteContent) handleCreate(e);

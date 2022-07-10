@@ -56,7 +56,7 @@ const Note = ({ note, onPin, onDelete, isListView }) => {
           }`}
         >
           <button
-            className={isFocused && classes.hidden}
+            className={isFocused ? classes.hidden : undefined}
             onClick={(e) => onDelete(e, note.id)}
             type="button"
           >
