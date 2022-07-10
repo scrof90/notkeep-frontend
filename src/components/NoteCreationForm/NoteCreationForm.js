@@ -7,7 +7,7 @@ const NoteCreationForm = ({
   onSubmit,
   onTitleChange,
   onContentChange,
-  onPinClick,
+  onPin,
   titleValue,
   contentValue,
   isPinned,
@@ -26,7 +26,7 @@ const NoteCreationForm = ({
         id="newNotePin"
         name="pin"
         className={`${classes.pinBtn} ${isBlurred ? classes.hidden : undefined}`}
-        onClick={onPinClick}
+        onClick={onPin}
         type="button"
       >
         {isPinned ? <MdPushPin /> : <MdOutlinePushPin />}
@@ -73,9 +73,9 @@ NoteCreationForm.propTypes = {
   titleValue: PropTypes.string.isRequired,
   contentValue: PropTypes.string.isRequired,
   isPinned: PropTypes.bool.isRequired,
+  onPin: PropTypes.func.isRequired,
   onTitleChange: PropTypes.func.isRequired,
   onContentChange: PropTypes.func.isRequired,
-  onPinClick: PropTypes.func.isRequired,
   isBlurred: PropTypes.bool.isRequired
 };
 

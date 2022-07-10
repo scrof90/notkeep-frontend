@@ -72,21 +72,6 @@
     justify-content: flex-end;
     align-items: center;
     transition: opacity 0.218s ease-in;
-
-    .saveBtn {
-      border-radius: 4px;
-      width: 4rem;
-      height: 2rem;
-      font-weight: bolder;
-      opacity: 0.6;
-      transition: none;
-    }
-    .saveBtn:hover {
-      background-color: $hover-color;
-    }
-    .saveBtn:active {
-      background-color: $active-color;
-    }
   }
 }
 
