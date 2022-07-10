@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Note from './Note/Note';
+import Note from '../Note/Note';
 import classes from './styles.module.scss';
 
 const Notes = ({ notes, onPin, onDelete, isListView }) => {
