@@ -1,13 +1,20 @@
 import PropTypes from 'prop-types';
-import Note from './Note/Note';
+import Note from '../Note/Note';
 import classes from './styles.module.scss';
 
-const Notes = ({ notes, onPin, onDelete, isListView }) => {
+const Notes = ({ notes, onClick, onPin, onDelete, isListView }) => {
   const notesPinned = notes.filter((note) => note.pinned);
   const notesUnpinned = notes.filter((note) => !note.pinned);
 
   const mapper = (note) => (
-    <Note key={note.id} note={note} onPin={onPin} onDelete={onDelete} isListView={isListView} />
+    <Note
+      key={note.id}
+      note={note}
+      onClick={onClick}
+      onPin={onPin}
+      onDelete={onDelete}
+      isListView={isListView}
+    />
   );
 
   return (
@@ -34,6 +41,7 @@ const Notes = ({ notes, onPin, onDelete, isListView }) => {
 
 Notes.propTypes = {
   notes: PropTypes.array.isRequired,
+  onClick: PropTypes.func.isRequired,
   onPin: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   isListView: PropTypes.bool.isRequired

@@ -7,7 +7,7 @@ const NoteCreationForm = ({
   onSubmit,
   onTitleChange,
   onContentChange,
-  onPinClick,
+  onPin,
   titleValue,
   contentValue,
   isPinned,
@@ -16,44 +16,47 @@ const NoteCreationForm = ({
   return (
     <form
       onFocus={onFocus}
-      className={`${classes.noteCreationForm} ${isBlurred && classes.blurred}`}
+      className={`${classes.noteCreationForm} ${isBlurred ? classes.blurred : undefined}`}
       onSubmit={onSubmit}
     >
-      <label className={classes.hidden} htmlFor="newNotePin">
+      <label htmlFor="newNotePin" hidden>
         Pin:
       </label>
       <button
         id="newNotePin"
-        className={`${classes.pinBtn} ${isBlurred && classes.hidden}`}
-        onClick={onPinClick}
+        name="pin"
+        className={`${classes.pinBtn} ${isBlurred ? classes.hidden : undefined}`}
+        onClick={onPin}
         type="button"
       >
         {isPinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
-      <label className={classes.hidden} htmlFor="newNoteTitle">
+      <label htmlFor="newNoteTitle" hidden>
         Title:
       </label>
       <input
         id="newNoteTitle"
-        className={`${classes.titleInput} ${isBlurred && classes.hidden}`}
+        name="title"
+        className={`${classes.titleInput} ${isBlurred ? classes.hidden : undefined}`}
         type="textarea"
         value={titleValue}
         onChange={onTitleChange}
         placeholder="Title"
       />
-      <label className={classes.hidden} htmlFor="newNoteContent">
+      <label htmlFor="newNoteContent" hidden>
         Note content:
       </label>
       <input
         id="newNoteContent"
+        name="content"
         className={classes.contentInput}
         type="textarea"
         value={contentValue}
         onChange={onContentChange}
         placeholder="Take a note..."
       />
-      <div className={`${classes.bottomBar} ${isBlurred && classes.hidden}`}>
-        <label className={classes.hidden} htmlFor="submit">
+      <div className={`${classes.bottomBar} ${isBlurred ? classes.hidden : undefined}`}>
+        <label htmlFor="submit" hidden>
           Submit:
         </label>
         <button id="submit" className={classes.saveBtn} type="submit">
@@ -70,9 +73,9 @@ NoteCreationForm.propTypes = {
   titleValue: PropTypes.string.isRequired,
   contentValue: PropTypes.string.isRequired,
   isPinned: PropTypes.bool.isRequired,
+  onPin: PropTypes.func.isRequired,
   onTitleChange: PropTypes.func.isRequired,
   onContentChange: PropTypes.func.isRequired,
-  onPinClick: PropTypes.func.isRequired,
   isBlurred: PropTypes.bool.isRequired
 };
 

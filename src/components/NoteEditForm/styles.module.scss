@@ -1,25 +1,66 @@
-@import '../../../assets/mixins';
+@import '../../assets/mixins';
 
-.note {
-  position: relative;
-  width: 206px;
-  cursor: pointer;
-  background-color: $background-color;
+.noteEditForm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 574px;
+  height: fit-content;
+  z-index: 2;
+  padding: 0.5rem 1rem;
   border: 1px solid $border-color;
   border-radius: 8px;
-  padding: 0.7rem;
+  background-color: $background-color;
+  box-shadow: 0 3px 5px $secondary-shadow-color;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 100px;
-  @include primeFont();
-  word-wrap: break-word;
-  transition: box-shadow 0.1s ease-in;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 0.5rem;
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    @include primeFont();
+  }
+  input::placeholder {
+    opacity: 0.6;
+    font-weight: bolder;
+  }
+
+  .titleInput {
+    font-size: $heading-font-size;
+    font-weight: bolder;
+  }
+  .titleInput::placeholder {
+    font-size: $heading-font-size;
+  }
+
+  .contentInput {
+    font-size: $font-size;
+  }
+  .contentInput::placeholder {
+    font-size: $font-size * 1.1;
+  }
 
   button {
     background: none;
     color: none;
     border: none;
+  }
+
+  .pinBtn {
+    position: absolute;
+    right: 12px;
+    top: 6px;
     border-radius: 50%;
     width: 2.2rem;
     height: 2.2rem;
@@ -40,31 +81,12 @@
       opacity: 1;
     }
   }
-  button:hover {
+
+  .pinBtn:hover {
     background-color: $hover-color;
   }
-  button:active {
+  .pinBtn:active {
     background-color: $active-color;
-  }
-
-  .pinBtn {
-    position: absolute;
-    right: 12px;
-    top: 6px;
-  }
-
-  section {
-    flex: 1 1 auto;
-
-    h3 {
-      font-size: $heading-font-size;
-      font-weight: bolder;
-      line-height: 1.5rem;
-    }
-    p {
-      font-size: $font-size;
-      line-height: 1.25rem;
-    }
   }
 
   .bottomBar {
@@ -90,36 +112,12 @@
   }
 }
 
-.listView {
-  width: 574px;
-}
-
-.mouseOver {
-  box-shadow: 0 3px 5px $shadow-color;
-}
-
 .transparent {
   opacity: 0;
 }
 
 .hidden {
   display: none !important;
-}
-
-.focused {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin-top: 10%;
-  margin-right: auto;
-  margin-left: auto;
-  width: 574px;
-  height: fit-content;
-  box-shadow: 0 3px 5px $secondary-shadow-color;
-  z-index: 2;
-  cursor: default;
-  transition: none;
 }
 
 .bg {
