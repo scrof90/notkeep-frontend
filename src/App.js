@@ -27,9 +27,6 @@ const App = () => {
 
   // NoteUpdateForm state
   const [editedNote, setEditedNote] = useState(null);
-  const [editedNoteTitle, setEditedNoteTitle] = useState('');
-  const [editedNoteContent, setEditedNoteContent] = useState('');
-  const [editedNotePinned, setEditedNotePinned] = useState(false);
 
   // Notification state
   const [notification, setNotification] = useState(null);
@@ -70,6 +67,12 @@ const App = () => {
   // NoteCreationForm functions
   const handleCreate = async (e) => {
     e.preventDefault();
+    if (isNoteCreationFormBlurred) return;
+    if (newNote.title.length === 0 && newNote.content.length === 0) {
+      clearNoteCreationForm();
+      return;
+    }
+
     const noteObject = {
       ...newNote,
       date: new Date().toISOString()
@@ -78,11 +81,7 @@ const App = () => {
     try {
       const returnedNote = await noteService.create(noteObject);
       setNotes(notes.concat(returnedNote));
-      setNewNote({
-        title: '',
-        content: '',
-        pinned: false
-      });
+      clearNoteCreationForm();
     } catch {
       showNotification('Note creation failed, please try again');
     }
@@ -90,11 +89,9 @@ const App = () => {
 
   const handleNewNotePinClick = () => setNewNote({ ...newNote, pinned: !newNote.pinned });
   const handleNewNoteChange = (e) => setNewNote({ ...newNote, [e.target.name]: e.target.value });
-
   const handleNoteCreationFormFocus = () => setIsNoteCreationFormBlurred(false);
-  const handleNoteCreationFormBlur = (e) => {
-    if (isNoteCreationFormBlurred) return;
-    if (newNote.title || newNote.content) handleCreate(e);
+
+  const clearNoteCreationForm = () => {
     setNewNote({
       title: '',
       content: '',
@@ -112,30 +109,22 @@ const App = () => {
 
     const changedNote = {
       ...note,
-      pinned: editedNotePinned,
-      title: editedNoteTitle,
-      content: editedNoteContent
+      ...editedNote
     };
 
     try {
       const returnedNote = await noteService.update(id, changedNote);
       setNotes(notes.map((n) => (n.id !== id ? n : returnedNote)));
       setEditedNote(null);
-      setEditedNotePinned(false);
-      setEditedNoteTitle('');
-      setEditedNoteContent('');
     } catch {
       showNotification('Note update failed, please try again');
     }
   };
 
-  const handleEditedNotePinClick = (e) => {
-    e.preventDefault();
-    setEditedNotePinned(!editedNotePinned);
-  };
-
-  const handleEditedNoteTitleChange = (e) => setEditedNoteTitle(e.target.value);
-  const handleEditedNoteContentChange = (e) => setEditedNoteContent(e.target.value);
+  const handleEditedNotePinClick = () =>
+    setEditedNote({ ...editedNote, pinned: !editedNote.pinned });
+  const handleEditedNoteChange = (e) =>
+    setEditedNote({ ...editedNote, [e.target.name]: e.target.value });
 
   // Note functions
   const togglePinned = async (e, id) => {
@@ -145,7 +134,7 @@ const App = () => {
 
     try {
       const returnedNote = await noteService.update(id, changedNote);
-      setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
+      setNotes(notes.map((n) => (n.id !== id ? n : returnedNote)));
     } catch {
       showNotification(`Note '${note.content}' was already removed from server`);
     }
@@ -162,9 +151,6 @@ const App = () => {
   const handleNoteClick = (e, id) => {
     const note = notes.find((n) => n.id === id);
     setEditedNote(note);
-    setEditedNotePinned(note.pinned);
-    setEditedNoteTitle(note.title);
-    setEditedNoteContent(note.content);
   };
 
   return (
@@ -190,7 +176,7 @@ const App = () => {
       </header>
       <div className={classes.contentContainer}>
         <div className={classes.noteCreationFormContainer}>
-          <OutsideClickHandler onOutsideClick={handleNoteCreationFormBlur}>
+          <OutsideClickHandler onOutsideClick={handleCreate}>
             <NoteCreationForm
               newNote={newNote}
               onFocus={handleNoteCreationFormFocus}
@@ -202,14 +188,10 @@ const App = () => {
           </OutsideClickHandler>
           {editedNote && (
             <NoteEditForm
-              onSubmit={handleUpdate}
-              onPin={handleEditedNotePinClick}
-              onTitleChange={handleEditedNoteTitleChange}
-              onContentChange={handleEditedNoteContentChange}
               note={editedNote}
-              isPinned={editedNotePinned}
-              titleValue={editedNoteTitle}
-              contentValue={editedNoteContent}
+              onPin={handleEditedNotePinClick}
+              onChange={handleEditedNoteChange}
+              onSubmit={handleUpdate}
             />
           )}
         </div>

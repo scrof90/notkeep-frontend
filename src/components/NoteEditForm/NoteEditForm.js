@@ -1,18 +1,8 @@
 import PropTypes from 'prop-types';
-// import OutsideClickHandler from 'react-outside-click-handler';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
 import classes from './styles.module.scss';
 
-const NoteEditForm = ({
-  note,
-  onPin,
-  onTitleChange,
-  onContentChange,
-  onSubmit,
-  titleValue,
-  contentValue,
-  isPinned
-}) => {
+const NoteEditForm = ({ note, onPin, onChange, onSubmit }) => {
   return (
     <>
       <form className={classes.noteEditForm} onSubmit={(e) => onSubmit(e, note.id)}>
@@ -20,7 +10,7 @@ const NoteEditForm = ({
           Pin:
         </label>
         <button id="pin" name="pin" className={classes.pinBtn} onClick={onPin} type="button">
-          {isPinned ? <MdPushPin /> : <MdOutlinePushPin />}
+          {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
         </button>
         <label htmlFor="title" hidden>
           Title:
@@ -30,8 +20,8 @@ const NoteEditForm = ({
           name="title"
           className={classes.titleInput}
           type="textarea"
-          value={titleValue}
-          onChange={onTitleChange}
+          value={note.title}
+          onChange={onChange}
           placeholder="Title"
         />
         <label htmlFor="content" hidden>
@@ -42,8 +32,8 @@ const NoteEditForm = ({
           name="content"
           className={classes.contentInput}
           type="textarea"
-          value={contentValue}
-          onChange={onContentChange}
+          value={note.content}
+          onChange={onChange}
           placeholder="Take a note..."
         />
         <div className={classes.bottomBar}>
@@ -61,14 +51,16 @@ const NoteEditForm = ({
 };
 
 NoteEditForm.propTypes = {
-  note: PropTypes.object.isRequired,
+  note: PropTypes.exact({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    content: PropTypes.string,
+    date: PropTypes.string,
+    pinned: PropTypes.bool
+  }).isRequired,
   onPin: PropTypes.func.isRequired,
-  onTitleChange: PropTypes.func.isRequired,
-  onContentChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  titleValue: PropTypes.string.isRequired,
-  contentValue: PropTypes.string.isRequired,
-  isPinned: PropTypes.bool.isRequired
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default NoteEditForm;
