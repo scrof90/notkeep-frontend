@@ -18,9 +18,11 @@ const App = () => {
   const [searchFilter, setSearchFilter] = useState('');
 
   // NoteCreationForm state
-  const [newNoteTitle, setNewNoteTitle] = useState('');
-  const [newNoteContent, setNewNoteContent] = useState('');
-  const [newNotePinned, setNewNotePinned] = useState(false);
+  const [newNote, setNewNote] = useState({
+    title: '',
+    content: '',
+    pinned: false
+  });
   const [isNoteCreationFormBlurred, setIsNoteCreationFormBlurred] = useState(true);
 
   // NoteUpdateForm state
@@ -69,36 +71,35 @@ const App = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     const noteObject = {
-      title: newNoteTitle,
-      content: newNoteContent,
-      date: new Date().toISOString(),
-      pinned: newNotePinned
+      ...newNote,
+      date: new Date().toISOString()
     };
 
     try {
       const returnedNote = await noteService.create(noteObject);
       setNotes(notes.concat(returnedNote));
-      setNewNoteTitle('');
-      setNewNoteContent('');
-      setNewNotePinned(false);
+      setNewNote({
+        title: '',
+        content: '',
+        pinned: false
+      });
     } catch {
       showNotification('Note creation failed, please try again');
     }
   };
 
-  const handleNotePinClick = (e) => {
-    e.preventDefault();
-    setNewNotePinned(!newNotePinned);
-  };
+  const handleNewNotePinClick = () => setNewNote({ ...newNote, pinned: !newNote.pinned });
+  const handleNewNoteChange = (e) => setNewNote({ ...newNote, [e.target.name]: e.target.value });
 
-  const handleNoteTitleChange = (e) => setNewNoteTitle(e.target.value);
-  const handleNoteContentChange = (e) => setNewNoteContent(e.target.value);
   const handleNoteCreationFormFocus = () => setIsNoteCreationFormBlurred(false);
-
   const handleNoteCreationFormBlur = (e) => {
     if (isNoteCreationFormBlurred) return;
-    if (newNoteTitle || newNoteContent) handleCreate(e);
-    setNewNotePinned(false);
+    if (newNote.title || newNote.content) handleCreate(e);
+    setNewNote({
+      title: '',
+      content: '',
+      pinned: false
+    });
     setIsNoteCreationFormBlurred(true);
   };
 
@@ -191,14 +192,11 @@ const App = () => {
         <div className={classes.noteCreationFormContainer}>
           <OutsideClickHandler onOutsideClick={handleNoteCreationFormBlur}>
             <NoteCreationForm
+              newNote={newNote}
               onFocus={handleNoteCreationFormFocus}
+              onPin={handleNewNotePinClick}
+              onChange={handleNewNoteChange}
               onSubmit={handleCreate}
-              onTitleChange={handleNoteTitleChange}
-              onContentChange={handleNoteContentChange}
-              onPin={handleNotePinClick}
-              titleValue={newNoteTitle}
-              contentValue={newNoteContent}
-              isPinned={newNotePinned}
               isBlurred={isNoteCreationFormBlurred}
             />
           </OutsideClickHandler>

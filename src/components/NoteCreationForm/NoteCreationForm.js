@@ -2,17 +2,7 @@ import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
 import classes from './styles.module.scss';
 
-const NoteCreationForm = ({
-  onFocus,
-  onSubmit,
-  onTitleChange,
-  onContentChange,
-  onPin,
-  titleValue,
-  contentValue,
-  isPinned,
-  isBlurred
-}) => {
+const NoteCreationForm = ({ newNote, onFocus, onSubmit, onChange, onPin, isBlurred }) => {
   return (
     <form
       onFocus={onFocus}
@@ -29,7 +19,7 @@ const NoteCreationForm = ({
         onClick={onPin}
         type="button"
       >
-        {isPinned ? <MdPushPin /> : <MdOutlinePushPin />}
+        {newNote.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
       </button>
       <label htmlFor="newNoteTitle" hidden>
         Title:
@@ -39,8 +29,8 @@ const NoteCreationForm = ({
         name="title"
         className={`${classes.titleInput} ${isBlurred ? classes.hidden : undefined}`}
         type="textarea"
-        value={titleValue}
-        onChange={onTitleChange}
+        value={newNote.title}
+        onChange={onChange}
         placeholder="Title"
       />
       <label htmlFor="newNoteContent" hidden>
@@ -51,8 +41,8 @@ const NoteCreationForm = ({
         name="content"
         className={classes.contentInput}
         type="textarea"
-        value={contentValue}
-        onChange={onContentChange}
+        value={newNote.content}
+        onChange={onChange}
         placeholder="Take a note..."
       />
       <div className={`${classes.bottomBar} ${isBlurred ? classes.hidden : undefined}`}>
@@ -68,14 +58,15 @@ const NoteCreationForm = ({
 };
 
 NoteCreationForm.propTypes = {
+  newNote: PropTypes.exact({
+    title: PropTypes.string,
+    content: PropTypes.string,
+    pinned: PropTypes.bool
+  }).isRequired,
   onFocus: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  titleValue: PropTypes.string.isRequired,
-  contentValue: PropTypes.string.isRequired,
-  isPinned: PropTypes.bool.isRequired,
   onPin: PropTypes.func.isRequired,
-  onTitleChange: PropTypes.func.isRequired,
-  onContentChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   isBlurred: PropTypes.bool.isRequired
 };
 
