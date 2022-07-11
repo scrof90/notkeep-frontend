@@ -136,7 +136,7 @@ const App = () => {
       const returnedNote = await noteService.update(id, changedNote);
       setNotes(notes.map((n) => (n.id !== id ? n : returnedNote)));
     } catch {
-      showNotification(`Note '${note.content}' was already removed from server`);
+      showNotification('Note update failed, please try again');
     }
   };
 
