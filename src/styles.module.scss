@@ -9,8 +9,6 @@ body {
   min-width: 360px;
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 0;
-  padding: 0;
 }
 
 .app {
@@ -20,47 +18,43 @@ body {
   align-items: stretch;
 
   header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
     position: fixed;
     top: 0;
-    width: 100%;
-    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    max-width: 100%;
     min-height: 48px;
     max-height: 48px;
+    padding: 0.5rem;
+    gap: 0.5rem;
     box-shadow: inset 0 -1px 0 0 $shadow-color;
+
+    .logoContainer {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      min-width: fit-content;
+      max-width: 200px;
+    }
+
+    .searchContainer {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: left;
+      min-width: fit-content;
+    }
+
+    .toolsContainer {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+      min-width: fit-content;
+      max-width: fit-content;
+    }
   }
-}
-
-.logoContainer {
-  flex: 1 1 auto;
-  min-width: fit-content;
-  max-width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.searchContainer {
-  box-sizing: border-box;
-  flex: 1 1 auto;
-  min-width: fit-content;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  max-height: 48px;
-}
-
-.toolsContainer {
-  flex: 1 1 auto;
-  min-width: fit-content;
-  max-width: 144px;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  padding-right: 1rem;
 }
 
 .contentContainer {
@@ -81,7 +75,6 @@ body {
   align-self: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 .listView {
