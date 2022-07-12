@@ -175,8 +175,8 @@ const App = () => {
         </div>
       </header>
       <div className={classes.contentContainer}>
-        <div className={classes.noteCreationFormContainer}>
-          <OutsideClickHandler onOutsideClick={handleCreate}>
+        <OutsideClickHandler onOutsideClick={handleCreate}>
+          <div className={classes.noteCreationFormContainer}>
             <NoteCreationForm
               newNote={newNote}
               onFocus={handleNoteCreationFormFocus}
@@ -185,16 +185,16 @@ const App = () => {
               onSubmit={handleCreate}
               isBlurred={isNoteCreationFormBlurred}
             />
-          </OutsideClickHandler>
-          {editedNote && (
-            <NoteEditForm
-              note={editedNote}
-              onPin={handleEditedNotePinClick}
-              onChange={handleEditedNoteChange}
-              onSubmit={handleUpdate}
-            />
-          )}
-        </div>
+          </div>
+        </OutsideClickHandler>
+        {editedNote && (
+          <NoteEditForm
+            note={editedNote}
+            onPin={handleEditedNotePinClick}
+            onChange={handleEditedNoteChange}
+            onSubmit={handleUpdate}
+          />
+        )}
         <Notification message={notification} />
         <div className={`${classes.notesContainer} ${isListView ? classes.listView : undefined}`}>
           {notesFiltered.length > 0 && (
