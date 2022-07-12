@@ -196,7 +196,7 @@ const App = () => {
           )}
         </div>
         <Notification message={notification} />
-        <div className={`${classes.notesContainer} ${isListView && classes.listView}`}>
+        <div className={`${classes.notesContainer} ${isListView ? classes.listView : undefined}`}>
           {notesFiltered.length > 0 && (
             <Notes
               notes={notesFiltered}
