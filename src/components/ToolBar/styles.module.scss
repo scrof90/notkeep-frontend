@@ -1,11 +1,11 @@
 @import '../../assets/mixins';
 
 .toolBar {
-  min-height: 48px;
-  min-width: 200px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  box-sizing: border-box;
+  min-width: 200px;
+  min-height: 48px;
 
   button,
   a {
