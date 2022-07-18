@@ -23,3 +23,7 @@
 - Refactor Notification component:
   - change styles to have a popup in the lower left of the screen
   - add necessary buttons where applicable
+
+- Add authentication functionality:
+  - add Signup functionality
+  - add Login functionality
