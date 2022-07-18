@@ -101,7 +101,6 @@ const App = () => {
   };
 
   // NoteEditForm functions
-
   const handleUpdate = async (e, id) => {
     e.preventDefault();
     e.stopPropagation();
@@ -144,7 +143,12 @@ const App = () => {
     e.stopPropagation();
     const isConfirmed = window.confirm('Are you sure you want to delete this note?');
     if (isConfirmed) {
-      noteService.remove(id).then(() => setNotes(notes.filter((n) => n.id !== id)));
+      try {
+        await noteService.remove(id);
+        setNotes(notes.filter((n) => n.id !== id));
+      } catch {
+        showNotification('Note deletion failed, please try again');
+      }
     }
   };
 
