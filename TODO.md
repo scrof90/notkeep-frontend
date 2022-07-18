@@ -1,5 +1,7 @@
 # TODO list
 
+- Rethink folder structure
+
 - Fix text area inputs:
   - fix NoteCreation form component:
     - fix title input
