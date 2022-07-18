@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import classes from './styles.module.scss';
+import classes from './assets/Notification.module.scss';
 
 const Notification = ({ message }) => {
   if (message === null) {

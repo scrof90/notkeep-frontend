@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { MdRefresh, MdOutlineViewAgenda, MdGridView } from 'react-icons/md';
 import { GoMarkGithub } from 'react-icons/go';
-import classes from './styles.module.scss';
+import classes from './assets/ToolBar.module.scss';
 
 const ToolBar = ({ refresh, isListView, toggleViewMode }) => {
   return (

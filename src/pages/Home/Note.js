@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin, MdDeleteForever } from 'react-icons/md';
-import classes from './styles.module.scss';
+import classes from './assets/Note.module.scss';
 
 const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);

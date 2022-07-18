@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import Note from '../Note/Note';
-import classes from './styles.module.scss';
+import Note from 'pages/Home/Note';
+import classes from './assets/Notes.module.scss';
 
 const Notes = ({ notes, onClick, onPin, onDelete, isListView }) => {
   const notesPinned = notes.filter((note) => note.pinned);

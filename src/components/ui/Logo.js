@@ -1,5 +1,5 @@
 import { MdInsertDriveFile } from 'react-icons/md';
-import classes from './styles.module.scss';
+import classes from './assets/Logo.module.scss';
 
 const Logo = () => {
   return (

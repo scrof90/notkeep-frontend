@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
-import classes from './styles.module.scss';
+import classes from './assets/NoteEditForm.module.scss';
 
 const NoteEditForm = ({ note, onPin, onChange, onSubmit }) => {
   return (

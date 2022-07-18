@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md';
 import { MdClose } from 'react-icons/md';
-import classes from './styles.module.scss';
+import classes from './assets/SearchBar.module.scss';
 
 const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
   const [isBlurred, setIsBlurred] = useState(true);

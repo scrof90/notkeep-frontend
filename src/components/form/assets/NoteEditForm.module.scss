@@ -1,21 +1,27 @@
-@import '../../assets/mixins';
+@import 'assets/mixins';
 
-.noteCreationForm {
-  margin: 0 auto;
-  position: relative;
+.noteEditForm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 574px;
+  height: fit-content;
+  z-index: 2;
+  padding: 0.5rem 1rem;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background-color: $background-color;
+  box-shadow: 0 3px 5px $secondary-shadow-color;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: space-around;
   gap: 0.5rem;
-  min-width: 564px;
-  max-width: 564px;
-  min-height: 46px;
-  padding: 0.5rem 1rem;
-  border: 1px solid $border-color;
-  border-radius: 8px;
-  background-color: $background-color;
-  box-shadow: 0 3px 5px $shadow-color;
 
   input {
     box-sizing: border-box;
@@ -52,16 +58,16 @@
   }
 
   .pinBtn {
-    border-radius: 50%;
     position: absolute;
     right: 12px;
     top: 6px;
+    border-radius: 50%;
     width: 2.2rem;
     height: 2.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.218s ease-in;
+    transition: background-color 0.218s ease-in, opacity 0.218s ease-in;
 
     svg {
       flex: 0 0 auto;
@@ -71,7 +77,11 @@
       opacity: 0.6;
       transition: opacity 0.218s ease-in;
     }
+    svg:hover {
+      opacity: 1;
+    }
   }
+
   .pinBtn:hover {
     background-color: $hover-color;
   }
@@ -83,6 +93,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    transition: opacity 0.218s ease-in;
 
     .saveBtn {
       border-radius: 4px;
@@ -90,6 +101,7 @@
       height: 2rem;
       font-weight: bolder;
       opacity: 0.6;
+      transition: none;
     }
     .saveBtn:hover {
       background-color: $hover-color;
@@ -98,19 +110,22 @@
       background-color: $active-color;
     }
   }
-
-  .hidden {
-    display: none;
-  }
 }
 
-.blurred {
-  padding: 0 1rem;
-  max-height: 46px;
+.transparent {
+  opacity: 0;
 }
 
-@media (max-width: $breakpoint-tablet) {
-  .noteCreationForm {
-    min-width: 90%;
-  }
+.hidden {
+  display: none !important;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
 }

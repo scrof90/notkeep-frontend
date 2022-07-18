@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
-import Logo from './components/Logo/Logo';
-import SearchBar from './components/SearchBar/SearchBar';
-import ToolBar from './components/ToolBar/ToolBar';
-import Notes from './components/Notes/Notes';
-import NoteCreationForm from './components/NoteCreationForm/NoteCreationForm';
-import NoteEditForm from './components/NoteEditForm/NoteEditForm';
-import Notification from './components/Notification/Notification';
-import noteService from './services/notes';
-import classes from './styles.module.scss';
+import Logo from 'components/ui/Logo';
+import SearchBar from 'pages/Home/SearchBar';
+import ToolBar from 'pages/Home/ToolBar';
+import Notes from 'pages/Home/Notes';
+import NoteCreationForm from 'components/form/NoteCreationForm';
+import NoteEditForm from 'components/form/NoteEditForm';
+import Notification from 'components/ui/Notification';
+import noteService from 'services/notes';
+import classes from './assets/App.module.scss';
 
 const App = () => {
   // DB state
