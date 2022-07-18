@@ -1,5 +1,13 @@
 # TODO list
 
+- Fix text area inputs:
+  - fix NoteCreation form component:
+    - fix title input
+    - fix content input
+  - fix NoteEditForm component:
+    - fix title input
+    - fix content input
+
 - Write Tooltip component for showing a tooltip triggered by mouse over buttons:
   - write component
   - add styles
