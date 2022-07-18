@@ -1,6 +1,7 @@
 # TODO list
 
 - Rethink folder structure
+- Extract isBlurred state from SearchBar into App component
 
 - Fix text area inputs:
   - fix NoteCreation form component:
