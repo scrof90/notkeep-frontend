@@ -1,6 +1,6 @@
 # TODO list
 
-- Rethink folder structure
+- [FINISHED] Rethink folder structure
 - Extract isBlurred state from SearchBar into App component
 
 - Fix text area inputs:
@@ -25,5 +25,5 @@
   - add necessary buttons where applicable
 
 - Add authentication functionality:
-  - add Signup functionality
+  - add Sign Up functionality
   - add Login functionality
