@@ -1,7 +1,7 @@
 # TODO list
 
 - [FINISHED] Rethink folder structure
-- Refactor notes service to async/await syntax
+- [FINISHED] Refactor notes service to async/await syntax
 - Extract isBlurred state from SearchBar into App component
 
 - Fix text area inputs:
