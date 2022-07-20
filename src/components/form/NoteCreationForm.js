@@ -24,11 +24,10 @@ const NoteCreationForm = ({ newNote, onFocus, onSubmit, onChange, onPin, isBlurr
       <label htmlFor="title" hidden>
         Title:
       </label>
-      <input
+      <textarea
         id="title"
         name="title"
-        className={`${classes.titleInput} ${isBlurred ? classes.hidden : undefined}`}
-        type="textarea"
+        className={`${classes.titleTextarea} ${isBlurred ? classes.hidden : undefined}`}
         value={newNote.title}
         onChange={onChange}
         placeholder="Title"
@@ -36,11 +35,10 @@ const NoteCreationForm = ({ newNote, onFocus, onSubmit, onChange, onPin, isBlurr
       <label htmlFor="content" hidden>
         Note content:
       </label>
-      <input
+      <textarea
         id="content"
         name="content"
-        className={classes.contentInput}
-        type="textarea"
+        className={classes.contentTextarea}
         value={newNote.content}
         onChange={onChange}
         placeholder="Take a note..."

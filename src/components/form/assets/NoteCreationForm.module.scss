@@ -17,7 +17,7 @@
   background-color: $background-color;
   box-shadow: 0 3px 5px $shadow-color;
 
-  input {
+  textarea {
     box-sizing: border-box;
     width: 100%;
     background: transparent;
@@ -25,23 +25,23 @@
     outline: none;
     @include primeFont();
   }
-  input::placeholder {
+  textarea::placeholder {
     opacity: 0.6;
     font-weight: bolder;
   }
 
-  .titleInput {
+  .titleTextarea {
     font-size: $heading-font-size;
     font-weight: bolder;
   }
-  .titleInput::placeholder {
+  .titleTextarea::placeholder {
     font-size: $heading-font-size;
   }
 
-  .contentInput {
+  .contentTextarea {
     font-size: $font-size;
   }
-  .contentInput::placeholder {
+  .contentTextarea::placeholder {
     font-size: $font-size * 1.1;
   }
 
