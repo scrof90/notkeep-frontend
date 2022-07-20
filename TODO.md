@@ -2,7 +2,7 @@
 
 - [FINISHED] Rethink folder structure
 - [FINISHED] Refactor notes service to async/await syntax
-- Extract isBlurred state from SearchBar into App component
+- [FINISHED] Extract isBlurred state from SearchBar into App component
 
 - Fix text area inputs:
   - fix NoteCreation form component:
