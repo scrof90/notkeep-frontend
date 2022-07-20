@@ -4,10 +4,10 @@
 - [FINISHED] Refactor notes service to async/await syntax
 - [FINISHED] Extract isBlurred state from SearchBar into App component
 
-- Fix text area inputs:
-  - fix NoteCreation form component:
-    - fix title input
-    - fix content input
+- [IN-PROGRESS] Fix text area inputs:
+  - [FINISHED] fix NoteCreation form component:
+    - [FINISHED] fix title input
+    - [FINISHED] fix content input
   - fix NoteEditForm component:
     - fix title input
     - fix content input
