@@ -14,8 +14,9 @@ const App = () => {
   // DB state
   const [notes, setNotes] = useState([]);
 
-  // Search function state
+  // SearchBar state
   const [searchFilter, setSearchFilter] = useState('');
+  const [isSearchBarBlurred, setIsSearchBarBlurred] = useState(true);
 
   // NoteCreationForm state
   const [newNote, setNewNote] = useState({
@@ -61,6 +62,7 @@ const App = () => {
   const toggleViewMode = () => setListView(!isListView);
 
   // SearchBar functions
+  const handleSearchBarFocusChange = () => setIsSearchBarBlurred(!isSearchBarBlurred);
   const handleSearchFilterChange = (e) => setSearchFilter(e.target.value);
   const handleSearchFilterClear = () => setSearchFilter('');
 
@@ -166,8 +168,10 @@ const App = () => {
         <div className={classes.searchContainer}>
           <SearchBar
             searchFilter={searchFilter}
-            onSearchFilterChange={handleSearchFilterChange}
-            onSearchFilterClear={handleSearchFilterClear}
+            onFocusChange={handleSearchBarFocusChange}
+            onChange={handleSearchFilterChange}
+            onClear={handleSearchFilterClear}
+            isBlurred={isSearchBarBlurred}
           />
         </div>
         <div className={classes.toolsContainer}>

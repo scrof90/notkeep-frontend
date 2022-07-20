@@ -1,17 +1,13 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md';
 import { MdClose } from 'react-icons/md';
 import classes from './assets/SearchBar.module.scss';
 
-const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) => {
-  const [isBlurred, setIsBlurred] = useState(true);
-  const handleOnFocusChange = () => setIsBlurred(!isBlurred);
-
+const SearchBar = ({ searchFilter, onFocusChange, onChange, onClear, isBlurred }) => {
   return (
     <form
-      onFocus={handleOnFocusChange}
-      onBlur={handleOnFocusChange}
+      onFocus={onFocusChange}
+      onBlur={onFocusChange}
       className={`${classes.searchBar} ${isBlurred && classes.blurred}`}
       onSubmit={(e) => e.preventDefault()}
       method="get"
@@ -28,9 +24,9 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
         type="text"
         placeholder="Search"
         value={searchFilter}
-        onChange={onSearchFilterChange}
+        onChange={onChange}
       />
-      <button onClick={onSearchFilterClear} type="reset">
+      <button onClick={onClear} type="reset">
         <MdClose />
       </button>
     </form>
@@ -39,8 +35,10 @@ const SearchBar = ({ searchFilter, onSearchFilterChange, onSearchFilterClear }) 
 
 SearchBar.propTypes = {
   searchFilter: PropTypes.string.isRequired,
-  onSearchFilterChange: PropTypes.func.isRequired,
-  onSearchFilterClear: PropTypes.func.isRequired
+  onFocusChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onClear: PropTypes.func.isRequired,
+  isBlurred: PropTypes.bool.isRequired
 };
 
 export default SearchBar;
