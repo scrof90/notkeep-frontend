@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
+import autoexpandTextarea from 'utils/autoexpandTextarea';
 import classes from './assets/NoteCreationForm.module.scss';
 
 const NoteCreationForm = ({ newNote, onFocus, onSubmit, onChange, onPin, isBlurred }) => {
@@ -31,6 +32,7 @@ const NoteCreationForm = ({ newNote, onFocus, onSubmit, onChange, onPin, isBlurr
         value={newNote.title}
         onChange={onChange}
         placeholder="Title"
+        onInput={autoexpandTextarea}
       />
       <label htmlFor="content" hidden>
         Note content:
@@ -38,10 +40,13 @@ const NoteCreationForm = ({ newNote, onFocus, onSubmit, onChange, onPin, isBlurr
       <textarea
         id="content"
         name="content"
-        className={classes.contentTextarea}
+        className={`${classes.contentTextarea} ${
+          isBlurred ? classes.contentTextareaBlurred : undefined
+        }`}
         value={newNote.content}
         onChange={onChange}
         placeholder="Take a note..."
+        onInput={autoexpandTextarea}
       />
       <div className={`${classes.bottomBar} ${isBlurred ? classes.hidden : undefined}`}>
         <label htmlFor="submit" hidden>
