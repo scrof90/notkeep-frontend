@@ -1,0 +1,28 @@
+@import 'assets/mixins';
+
+.btnWithIconLarge {
+  background: none;
+  color: none;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+
+  svg {
+    vertical-align: middle;
+    width: 60%;
+    height: auto;
+    opacity: 0.6;
+  }
+  svg:hover {
+    opacity: 1;
+  }
+}
+
+.btnWithIconLarge:hover {
+  background-color: $hover-color;
+}
+
+.btnWithIconLarge:active {
+  background-color: $active-color;
+}
