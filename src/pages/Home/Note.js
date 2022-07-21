@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin, MdDeleteForever } from 'react-icons/md';
-import BtnWithIcon from 'components/ui/BtnWithIcon';
+import BtnWithIconSmall from 'components/ui/BtnWithIconSmall';
 import classes from './assets/Note.module.scss';
 
 const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
@@ -21,7 +21,7 @@ const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
       <div
         className={`${classes.pinBtnContainer} ${!isMouseOver ? classes.transparent : undefined}`}
       >
-        <BtnWithIcon
+        <BtnWithIconSmall
           onClick={(e) => onPin(e, note.id)}
           icon={note.pinned ? MdPushPin : MdOutlinePushPin}
         />
@@ -31,7 +31,7 @@ const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
         <p>{note.content}</p>
       </section>
       <div className={`${classes.bottomBar} ${!isMouseOver ? classes.transparent : undefined}`}>
-        <BtnWithIcon onClick={(e) => onDelete(e, note.id)} icon={MdDeleteForever} />
+        <BtnWithIconSmall onClick={(e) => onDelete(e, note.id)} icon={MdDeleteForever} />
       </div>
     </div>
   );

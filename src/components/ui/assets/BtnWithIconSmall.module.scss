@@ -1,6 +1,6 @@
 @import 'assets/mixins';
 
-.btnWithIcon {
+.btnWithIconSmall {
   background: none;
   color: none;
   border: none;
@@ -21,10 +21,10 @@
   }
 }
 
-.btnWithIcon:hover {
+.btnWithIconSmall:hover {
   background-color: $hover-color;
 }
 
-.btnWithIcon:active {
+.btnWithIconSmall:active {
   background-color: $active-color;
 }
