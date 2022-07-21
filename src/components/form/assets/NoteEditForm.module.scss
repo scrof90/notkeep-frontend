@@ -64,13 +64,10 @@
     border-radius: 50%;
     width: 2.2rem;
     height: 2.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: background-color 0.218s ease-in, opacity 0.218s ease-in;
 
     svg {
-      flex: 0 0 auto;
+      vertical-align: middle;
       border-radius: 50%;
       width: 100%;
       height: auto;

@@ -13,11 +13,8 @@
     color: none;
     border: none;
     border-radius: 50%;
-    display: flex;
     flex: 0 0 3rem;
     min-height: 48px;
-    align-items: center;
-    justify-content: center;
   }
   button:hover {
     background-color: $hover-color;
@@ -27,6 +24,7 @@
   }
 
   svg {
+    vertical-align: middle;
     width: 60%;
     height: auto;
     opacity: 0.6;
@@ -34,5 +32,16 @@
   }
   svg:hover {
     opacity: 1;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 70%;
+      height: auto;
+    }
   }
 }
