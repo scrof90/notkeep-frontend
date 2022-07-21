@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { MdSearch } from 'react-icons/md';
 import { MdClose } from 'react-icons/md';
+import BtnWithIconLarge from 'components/ui/BtnWithIconLarge';
 import classes from './assets/SearchBar.module.scss';
 
 const SearchBar = ({ searchFilter, onFocusChange, onChange, onClear, isBlurred }) => {
@@ -26,9 +27,9 @@ const SearchBar = ({ searchFilter, onFocusChange, onChange, onClear, isBlurred }
         value={searchFilter}
         onChange={onChange}
       />
-      <button onClick={onClear} type="reset">
-        <MdClose />
-      </button>
+      <div>
+        <BtnWithIconLarge onClick={onClear} icon={MdClose} />
+      </div>
     </form>
   );
 };
