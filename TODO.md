@@ -12,9 +12,9 @@
     - [FINISHED] fix title input
     - [FINISHED] fix content input
 
-- Refactor buttons:
+- [FINISHED] Refactor buttons:
   - [FINISHED] update CSS to not use Flexbox anymore
-  - extract buttons into components
+  - [FINISHED] extract buttons into components
 
 - Write Tooltip component for showing a tooltip triggered by mouse over buttons:
   - write component
