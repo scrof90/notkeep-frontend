@@ -13,7 +13,7 @@
     - fix content input
 
 - Refactor buttons:
-  - update CSS to not use Flexbox anymore
+  - [FINISHED] update CSS to not use Flexbox anymore
   - extract buttons into components
 
 - Write Tooltip component for showing a tooltip triggered by mouse over buttons:
