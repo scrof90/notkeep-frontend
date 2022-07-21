@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin, MdDeleteForever } from 'react-icons/md';
+import BtnWithIcon from 'components/ui/BtnWithIcon';
 import classes from './assets/Note.module.scss';
 
 const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
@@ -17,25 +18,20 @@ const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
       onMouseOver={onMouseOver}
       onMouseOut={onMouseOut}
     >
-      <label htmlFor="pin" hidden>
-        Pin:
-      </label>
-      <button
-        id="pin"
-        className={`${classes.pinBtn} ${!isMouseOver ? classes.transparent : undefined}`}
-        onClick={(e) => onPin(e, note.id)}
-        type="button"
+      <div
+        className={`${classes.pinBtnContainer} ${!isMouseOver ? classes.transparent : undefined}`}
       >
-        {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
-      </button>
+        <BtnWithIcon
+          onClick={(e) => onPin(e, note.id)}
+          icon={note.pinned ? MdPushPin : MdOutlinePushPin}
+        />
+      </div>
       <section>
         {note.title.length > 0 && <h3>{note.title}</h3>}
         <p>{note.content}</p>
       </section>
       <div className={`${classes.bottomBar} ${!isMouseOver ? classes.transparent : undefined}`}>
-        <button onClick={(e) => onDelete(e, note.id)} type="button">
-          <MdDeleteForever />
-        </button>
+        <BtnWithIcon onClick={(e) => onDelete(e, note.id)} icon={MdDeleteForever} />
       </div>
     </div>
   );
