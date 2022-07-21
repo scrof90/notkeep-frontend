@@ -23,31 +23,34 @@
   justify-content: space-around;
   gap: 0.5rem;
 
-  input {
+  textarea {
+    display: block;
     box-sizing: border-box;
-    width: 100%;
+    overflow: auto;
+    padding-right: 2rem;
+    resize: none;
     background: transparent;
     border: none;
     outline: none;
     @include primeFont();
   }
-  input::placeholder {
+  textarea::placeholder {
     opacity: 0.6;
     font-weight: bolder;
   }
 
-  .titleInput {
+  .titleTextarea {
     font-size: $heading-font-size;
     font-weight: bolder;
   }
-  .titleInput::placeholder {
+  .titleTextarea::placeholder {
     font-size: $heading-font-size;
   }
 
-  .contentInput {
+  .contentTextarea {
     font-size: $font-size;
   }
-  .contentInput::placeholder {
+  .contentTextarea::placeholder {
     font-size: $font-size * 1.1;
   }
 

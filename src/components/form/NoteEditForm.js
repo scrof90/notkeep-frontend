@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
+import autoresizeTextarea from 'utils/autoresizeTextarea';
 import classes from './assets/NoteEditForm.module.scss';
 
 const NoteEditForm = ({ note, onPin, onChange, onSubmit }) => {
@@ -15,26 +16,26 @@ const NoteEditForm = ({ note, onPin, onChange, onSubmit }) => {
         <label htmlFor="title" hidden>
           Title:
         </label>
-        <input
+        <textarea
           id="title"
           name="title"
-          className={classes.titleInput}
-          type="textarea"
+          className={classes.titleTextarea}
           value={note.title}
           onChange={onChange}
           placeholder="Title"
+          onInput={autoresizeTextarea}
         />
         <label htmlFor="content" hidden>
           Note content:
         </label>
-        <input
+        <textarea
           id="content"
           name="content"
-          className={classes.contentInput}
-          type="textarea"
+          className={classes.contentTextarea}
           value={note.content}
           onChange={onChange}
           placeholder="Take a note..."
+          onInput={autoresizeTextarea}
         />
         <div className={classes.bottomBar}>
           <label htmlFor="submit" hidden>
