@@ -8,6 +8,7 @@ import NoteCreationForm from 'components/form/NoteCreationForm';
 import NoteEditForm from 'components/form/NoteEditForm';
 import Notification from 'components/ui/Notification';
 import noteService from 'services/notes';
+import handleError from 'utils/handleError';
 import classes from './assets/App.module.scss';
 
 const App = () => {
@@ -50,8 +51,9 @@ const App = () => {
     try {
       const notes = await noteService.getAll();
       setNotes(notes);
-    } catch {
+    } catch (err) {
       showNotification('Failed to fetch notes');
+      handleError(err);
     }
   };
 
@@ -84,8 +86,9 @@ const App = () => {
       const returnedNote = await noteService.create(noteObject);
       setNotes(notes.concat(returnedNote));
       clearNoteCreationForm();
-    } catch {
+    } catch (err) {
       showNotification('Note creation failed, please try again');
+      handleError(err);
     }
   };
 
@@ -117,8 +120,9 @@ const App = () => {
       const returnedNote = await noteService.update(id, changedNote);
       setNotes(notes.map((n) => (n.id !== id ? n : returnedNote)));
       setEditedNote(null);
-    } catch {
+    } catch (err) {
       showNotification('Note update failed, please try again');
+      handleError(err);
     }
   };
 
@@ -136,8 +140,9 @@ const App = () => {
     try {
       const returnedNote = await noteService.update(id, changedNote);
       setNotes(notes.map((n) => (n.id !== id ? n : returnedNote)));
-    } catch {
+    } catch (err) {
       showNotification('Note update failed, please try again');
+      handleError(err);
     }
   };
 
@@ -148,8 +153,9 @@ const App = () => {
       try {
         await noteService.remove(id);
         setNotes(notes.filter((n) => n.id !== id));
-      } catch {
+      } catch (err) {
         showNotification('Note deletion failed, please try again');
+        handleError(err);
       }
     }
   };
