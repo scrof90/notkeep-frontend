@@ -9,6 +9,7 @@ import NoteEditForm from 'components/form/NoteEditForm';
 import Notification from 'components/ui/Notification';
 import noteService from 'services/notes';
 import handleError from 'utils/handleError';
+import { NOTIFICATION_TIMEOUT_MS } from 'data/constants';
 import classes from './assets/App.module.scss';
 
 const App = () => {
@@ -44,7 +45,7 @@ const App = () => {
     setNotification(message);
     setTimeout(() => {
       setNotification(null);
-    }, 5000);
+    }, NOTIFICATION_TIMEOUT_MS);
   };
 
   const fetchAllNotes = async () => {
