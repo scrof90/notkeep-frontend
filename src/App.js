@@ -77,7 +77,6 @@ const App = () => {
       clearNoteCreationForm();
       return;
     }
-
     const noteObject = {
       ...newNote,
       date: new Date().toISOString()
@@ -94,7 +93,9 @@ const App = () => {
   };
 
   const handleNewNotePinClick = () => setNewNote({ ...newNote, pinned: !newNote.pinned });
+
   const handleNewNoteChange = (e) => setNewNote({ ...newNote, [e.target.name]: e.target.value });
+
   const handleNoteCreationFormFocus = () => setIsNoteCreationFormBlurred(false);
 
   const clearNoteCreationForm = () => {
@@ -111,7 +112,6 @@ const App = () => {
     e.preventDefault();
     e.stopPropagation();
     const note = notes.find((p) => p.id === id);
-
     const changedNote = {
       ...note,
       ...editedNote
@@ -150,6 +150,7 @@ const App = () => {
   const handleDelete = async (e, id) => {
     e.stopPropagation();
     const isConfirmed = window.confirm('Are you sure you want to delete this note?');
+
     if (isConfirmed) {
       try {
         await noteService.remove(id);
