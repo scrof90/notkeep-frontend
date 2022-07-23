@@ -7,10 +7,11 @@ import classes from './assets/ToolBar.module.scss';
 const ToolBar = ({ refresh, isListView, toggleViewMode }) => {
   return (
     <div className={classes.toolBar}>
-      <BtnWithIconLarge onClick={refresh} icon={MdRefresh} />
+      <BtnWithIconLarge onClick={refresh} icon={MdRefresh} tooltipText={'Refresh'} />
       <BtnWithIconLarge
         onClick={toggleViewMode}
         icon={isListView ? MdGridView : MdOutlineViewAgenda}
+        tooltipText={isListView ? 'Grid view' : 'List view'}
       />
       <a href="https://github.com/scrof90/notkeep-frontend">
         <GoMarkGithub />
