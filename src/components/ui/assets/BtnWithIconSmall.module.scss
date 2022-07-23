@@ -1,6 +1,11 @@
 @import 'assets/mixins';
 
 .btnWithIconSmall {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   position: static;
   background: none;
   color: none;

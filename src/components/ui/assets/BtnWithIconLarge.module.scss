@@ -1,7 +1,11 @@
 @import 'assets/mixins';
 
 .btnWithIconLarge {
-  position: static;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   background: none;
   color: none;
   border: none;
