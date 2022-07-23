@@ -16,9 +16,12 @@
   - [FINISHED] update CSS to not use Flexbox anymore
   - [FINISHED] extract buttons into components
 
-- Write Tooltip component for showing a tooltip triggered by mouse over buttons:
-  - write component
-  - add styles
+- [FINISHED] Write Tooltip component for showing a tooltip triggered by mouse over buttons:
+  - [FINISHED] write the component
+  - [FINISHED] add styles
+  - [FINISHED] add necessary fixes to components that use the tooltip and their parents
+
+- Make tooltips wider
 
 - Implement trash can functionality for the app:
   - write necessary components

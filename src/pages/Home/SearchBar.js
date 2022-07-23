@@ -28,7 +28,7 @@ const SearchBar = ({ searchFilter, onFocusChange, onChange, onClear, isBlurred }
         onChange={onChange}
       />
       <div>
-        <BtnWithIconLarge onClick={onClear} icon={MdClose} />
+        <BtnWithIconLarge onClick={onClear} icon={MdClose} tooltipText={'Clear search'} />
       </div>
     </form>
   );

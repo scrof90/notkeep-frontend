@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import BtnWithIconSmall from 'components/ui/BtnWithIconSmall';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
 import autoresizeTextarea from 'utils/autoresizeTextarea';
 import classes from './assets/NoteCreationForm.module.scss';
@@ -10,18 +11,13 @@ const NoteCreationForm = ({ newNote, onFocus, onSubmit, onChange, onPin, isBlurr
       className={`${classes.noteCreationForm} ${isBlurred ? classes.blurred : undefined}`}
       onSubmit={onSubmit}
     >
-      <label htmlFor="pin" hidden>
-        Pin:
-      </label>
-      <button
-        id="pin"
-        name="pin"
-        className={`${classes.pinBtn} ${isBlurred ? classes.hidden : undefined}`}
-        onClick={onPin}
-        type="button"
-      >
-        {newNote.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
-      </button>
+      <div className={`${classes.pinBtnContainer} ${isBlurred ? classes.hidden : undefined}`}>
+        <BtnWithIconSmall
+          onClick={onPin}
+          icon={newNote.pinned ? MdPushPin : MdOutlinePushPin}
+          tooltipText={newNote.pinned ? 'Unpin note' : 'Pin note'}
+        />
+      </div>
       <label htmlFor="title" hidden>
         Title:
       </label>

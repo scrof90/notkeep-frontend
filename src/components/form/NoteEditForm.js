@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { MdPushPin, MdOutlinePushPin } from 'react-icons/md';
+import BtnWithIconSmall from 'components/ui/BtnWithIconSmall';
 import autoresizeTextarea from 'utils/autoresizeTextarea';
 import classes from './assets/NoteEditForm.module.scss';
 
@@ -7,12 +8,13 @@ const NoteEditForm = ({ note, onPin, onChange, onSubmit }) => {
   return (
     <>
       <form className={classes.noteEditForm} onSubmit={(e) => onSubmit(e, note.id)}>
-        <label htmlFor="pin" hidden>
-          Pin:
-        </label>
-        <button id="pin" name="pin" className={classes.pinBtn} onClick={onPin} type="button">
-          {note.pinned ? <MdPushPin /> : <MdOutlinePushPin />}
-        </button>
+        <div className={classes.pinBtnContainer}>
+          <BtnWithIconSmall
+            onClick={onPin}
+            icon={note.pinned ? MdPushPin : MdOutlinePushPin}
+            tooltipText={note.pinned ? 'Unpin note' : 'Pin note'}
+          />
+        </div>
         <label htmlFor="title" hidden>
           Title:
         </label>

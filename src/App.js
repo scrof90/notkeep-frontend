@@ -9,6 +9,7 @@ import NoteEditForm from 'components/form/NoteEditForm';
 import Notification from 'components/ui/Notification';
 import noteService from 'services/notes';
 import handleError from 'utils/handleError';
+import { NOTIFICATION_TIMEOUT_MS } from 'data/constants';
 import classes from './assets/App.module.scss';
 
 const App = () => {
@@ -44,7 +45,7 @@ const App = () => {
     setNotification(message);
     setTimeout(() => {
       setNotification(null);
-    }, 5000);
+    }, NOTIFICATION_TIMEOUT_MS);
   };
 
   const fetchAllNotes = async () => {
@@ -76,7 +77,6 @@ const App = () => {
       clearNoteCreationForm();
       return;
     }
-
     const noteObject = {
       ...newNote,
       date: new Date().toISOString()
@@ -93,7 +93,9 @@ const App = () => {
   };
 
   const handleNewNotePinClick = () => setNewNote({ ...newNote, pinned: !newNote.pinned });
+
   const handleNewNoteChange = (e) => setNewNote({ ...newNote, [e.target.name]: e.target.value });
+
   const handleNoteCreationFormFocus = () => setIsNoteCreationFormBlurred(false);
 
   const clearNoteCreationForm = () => {
@@ -110,7 +112,6 @@ const App = () => {
     e.preventDefault();
     e.stopPropagation();
     const note = notes.find((p) => p.id === id);
-
     const changedNote = {
       ...note,
       ...editedNote
@@ -149,6 +150,7 @@ const App = () => {
   const handleDelete = async (e, id) => {
     e.stopPropagation();
     const isConfirmed = window.confirm('Are you sure you want to delete this note?');
+
     if (isConfirmed) {
       try {
         await noteService.remove(id);

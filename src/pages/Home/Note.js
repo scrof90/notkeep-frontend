@@ -24,6 +24,7 @@ const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
         <BtnWithIconSmall
           onClick={(e) => onPin(e, note.id)}
           icon={note.pinned ? MdPushPin : MdOutlinePushPin}
+          tooltipText={note.pinned ? 'Unpin note' : 'Pin note'}
         />
       </div>
       <section>
@@ -31,7 +32,11 @@ const Note = ({ note, onClick, onPin, onDelete, isListView }) => {
         <p>{note.content}</p>
       </section>
       <div className={`${classes.bottomBar} ${!isMouseOver ? classes.transparent : undefined}`}>
-        <BtnWithIconSmall onClick={(e) => onDelete(e, note.id)} icon={MdDeleteForever} />
+        <BtnWithIconSmall
+          onClick={(e) => onDelete(e, note.id)}
+          icon={MdDeleteForever}
+          tooltipText={'Delete note'}
+        />
       </div>
     </div>
   );
