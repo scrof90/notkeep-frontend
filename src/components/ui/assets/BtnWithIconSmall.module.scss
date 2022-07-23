@@ -6,21 +6,20 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  position: static;
   background: none;
   color: none;
   border: none;
   border-radius: 50%;
   width: 2.2rem;
   height: 2.2rem;
-  transition: background-color 0.218s ease-in, opacity 0.218s ease-in;
+  transition: background-color 0.218s ease-in, $transition-opacity;
 
   svg {
     vertical-align: middle;
     width: 90%;
     height: auto;
     opacity: 0.6;
-    transition: opacity 0.218s ease-in;
+    transition: $transition-opacity;
   }
   svg:hover {
     opacity: 1;
