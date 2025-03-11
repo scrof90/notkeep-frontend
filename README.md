@@ -1,4 +1,4 @@
-# NotKeep: A Fullstack Note Keeping App
+# (ABANDONED) NotKeep: A Fullstack Note Keeping App
 
 ## Frontend repository
 
